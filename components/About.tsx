@@ -1,156 +1,134 @@
 import React from 'react';
-import { motion, useMotionValue, useMotionTemplate } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
-import { ParallaxBackground } from './ui/ParallaxBackground';
-import { ZoomSection } from './ui/ZoomSection';
-import { InteractiveHeading } from './ui/InteractiveHeading';
+import { motion } from 'framer-motion';
+import { ArrowRight, ExternalLink } from 'lucide-react';
 
 const About: React.FC = () => {
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  function handleMouseMove({ currentTarget, clientX, clientY }: React.MouseEvent) {
-    const { left, top } = currentTarget.getBoundingClientRect();
-    mouseX.set(clientX - left);
-    mouseY.set(clientY - top);
-  }
-
-  // Slide up animation for heading lines
   const slideUp = {
-    hidden: { y: "100%", opacity: 0 },
-    visible: { 
-        y: "0%", 
-        opacity: 1,
-        transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] }
+    hidden: { y: 30, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
     }
   };
-  
-  const headingContainer = {
+
+  const containerVariants = {
     visible: {
-        transition: { staggerChildren: 0.15 }
+      transition: { staggerChildren: 0.1 }
     }
   };
 
   return (
-    <section 
+    <section
       id="about"
-      className="min-h-screen w-full bg-[#080808] flex items-center justify-center py-32 px-6 md:px-20 relative z-20 overflow-hidden"
-      onMouseMove={handleMouseMove}
+      className="min-h-screen w-full bg-[#050505] flex items-center justify-center py-24 px-6 md:px-20 relative overflow-hidden"
     >
-      <ParallaxBackground />
-
-      {/* Interactive Grid */}
-      <div className="absolute inset-0 pointer-events-none z-0">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:40px_40px]" />
-        <motion.div
-            className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff10_1px,transparent_1px),linear-gradient(to_bottom,#ffffff10_1px,transparent_1px)] bg-[size:40px_40px]"
-            style={{
-                maskImage: useMotionTemplate`radial-gradient(300px circle at ${mouseX}px ${mouseY}px, black, transparent)`,
-                WebkitMaskImage: useMotionTemplate`radial-gradient(300px circle at ${mouseX}px ${mouseY}px, black, transparent)`
-            }}
-        />
-      </div>
-
-      {/* Dynamic Background Elements */}
-      <motion.div 
-         animate={{ 
-           scale: [1, 1.2, 1],
-           rotate: [0, 90, 0],
-           opacity: [0.1, 0.2, 0.1] 
-         }}
-         transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-         className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-b from-green-900/10 to-transparent rounded-full blur-[100px] pointer-events-none z-0"
+      {/* Simple gradient background */}
+      <div
+        className="absolute top-0 right-0 w-[600px] h-[600px] rounded-full opacity-20 pointer-events-none"
+        style={{
+          background: 'radial-gradient(circle, rgba(34, 197, 94, 0.3) 0%, transparent 70%)',
+          filter: 'blur(80px)',
+        }}
       />
 
-      <ZoomSection className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-2 gap-20 items-center relative z-10">
-        
-        <div className="relative">
-          <motion.div 
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={headingContainer}
-            className="relative z-10"
-          >
-            <h2 className="text-5xl md:text-8xl font-bold mb-8 leading-[1.1] tracking-tight">
-              {/* Masked Reveal for Line 1 */}
-              <div className="overflow-hidden">
-                <motion.div variants={slideUp}>
-                    <InteractiveHeading text="Designing" />
-                </motion.div> 
-              </div>
-              
-              {/* Masked Reveal for Line 2 */}
-              <div className="overflow-hidden py-2">
-                <motion.div variants={slideUp}>
-                    <span className="text-green-500 font-serif italic pr-4 inline-block drop-shadow-[0_0_20px_rgba(34,197,94,0.4)]">
-                        <InteractiveHeading text="Tomorrow's" />
-                    </span>
-                </motion.div>
-              </div>
+      <div className="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
 
-              {/* Masked Reveal for Line 3 */}
-              <div className="overflow-hidden">
-                <motion.div variants={slideUp}>
-                    <InteractiveHeading text="Aesthetics." />
-                </motion.div>
-              </div>
-            </h2>
+        {/* Left - Heading */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={containerVariants}
+        >
+          <motion.h2
+            variants={slideUp}
+            className="text-4xl md:text-7xl font-bold mb-6 leading-tight tracking-tight"
+          >
+            Creating
+            <span className="text-green-500 font-serif italic block">
+              Visual Magic
+            </span>
+            Since 2019
+          </motion.h2>
+
+          {/* Stats */}
+          <motion.div
+            variants={slideUp}
+            className="flex flex-wrap gap-8 mt-8"
+          >
+            <div>
+              <span className="text-4xl md:text-5xl font-bold text-green-400">6+</span>
+              <p className="text-gray-500 text-sm uppercase tracking-wider mt-1">Years Experience</p>
+            </div>
+            <div>
+              <span className="text-4xl md:text-5xl font-bold text-green-400">150K+</span>
+              <p className="text-gray-500 text-sm uppercase tracking-wider mt-1">Discord Server Work</p>
+            </div>
           </motion.div>
-          
-          <motion.div 
-             initial={{ scale: 0.8, opacity: 0 }}
-             whileInView={{ scale: 1, opacity: 1 }}
-             viewport={{ once: true }}
-             transition={{ delay: 0.2, duration: 0.8 }}
-             className="absolute -top-20 -left-20 w-60 h-60 bg-emerald-900/20 rounded-full blur-[80px]"
-          />
-        </div>
+        </motion.div>
 
-        <div className="flex flex-col justify-center">
-          <motion.p 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-10%" }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-            className="text-2xl md:text-4xl text-white font-light leading-snug mb-12"
+        {/* Right - Content */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={containerVariants}
+          className="flex flex-col"
+        >
+          <motion.p
+            variants={slideUp}
+            className="text-xl md:text-2xl text-white font-light leading-relaxed mb-8"
           >
-            I am OAKSES. A visionary Graphic Designer and Entrepreneur based in the digital realm. I don't just design; I engineer visual experiences that leave a lasting imprint on the digital landscape.
+            I'm <span className="text-green-400 font-medium">OAKSES</span> – a multi-disciplinary designer with over 6 years of experience crafting visual identities that stand out. From Discord server branding to jersey designs, I've helped countless communities and businesses establish their visual presence.
           </motion.p>
-          
-          <motion.p 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-10%" }}
-            transition={{ duration: 0.8, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="text-lg md:text-xl text-white font-light leading-relaxed mb-12"
+
+          <motion.p
+            variants={slideUp}
+            className="text-lg text-gray-400 font-light leading-relaxed mb-8"
           >
-            My work bridges the gap between functional design and artistic expression. Whether it's branding, web interfaces, or motion graphics, I bring a unique perspective that turns ordinary concepts into extraordinary realities.
+            I've worked as the official designer for multiple <span className="text-white">150K+ member Discord servers</span>, creating everything from logos and banners to complete brand identities. My expertise spans UI/UX design, thumbnails, posters, and custom jerseys.
           </motion.p>
-          
-          <motion.button 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-10%" }}
-            transition={{ delay: 0.6, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            whileHover="hover"
-            whileTap={{ scale: 0.95 }}
-            className="group w-fit flex items-center gap-4 text-white uppercase tracking-[0.2em] text-sm transition-colors"
+
+          {/* Services Tags */}
+          <motion.div
+            variants={slideUp}
+            className="flex flex-wrap gap-3 mb-10"
           >
-            <span className="group-hover:text-green-400 transition-colors duration-300">Read My Story</span>
-            <motion.span 
-              variants={{
-                hover: { rotate: -45, scale: 1.1, backgroundColor: "#ffffff", color: "#000000" }
-              }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="p-3 border border-white/20 rounded-full text-white transition-all duration-300"
+            {['Graphic Design', 'UI/UX Design', 'Jersey Design', 'Thumbnails', 'Logo Design', 'Poster Design', 'Discord Branding'].map((skill) => (
+              <span
+                key={skill}
+                className="px-4 py-2 text-sm border border-white/10 rounded-full text-gray-300 bg-white/5"
+              >
+                {skill}
+              </span>
+            ))}
+          </motion.div>
+
+          {/* CTA Buttons */}
+          <motion.div
+            variants={slideUp}
+            className="flex flex-wrap gap-4"
+          >
+            <a
+              href="#contact"
+              className="group flex items-center gap-3 px-6 py-3 bg-green-500 text-black font-semibold rounded-full hover:bg-green-400 transition-colors"
             >
-              <ArrowRight size={16} />
-            </motion.span>
-          </motion.button>
-        </div>
-
-      </ZoomSection>
+              Work With Me
+              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+            </a>
+            <a
+              href="https://www.elevez.shop"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-3 px-6 py-3 border border-white/20 text-white rounded-full hover:border-green-500/50 hover:bg-white/5 transition-all"
+            >
+              Visit Elevez Shop
+              <ExternalLink size={16} />
+            </a>
+          </motion.div>
+        </motion.div>
+      </div>
     </section>
   );
 };
