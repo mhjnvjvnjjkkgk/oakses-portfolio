@@ -25,7 +25,7 @@ function App() {
   }, []);
 
   return (
-    <div className="bg-[#050505] min-h-screen text-white selection:bg-green-500 selection:text-white">
+    <div className="bg-[#0f0f0f] min-h-screen text-white selection:bg-green-500 selection:text-white">
       <Navigation />
 
       <main>

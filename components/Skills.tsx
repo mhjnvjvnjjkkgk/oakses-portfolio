@@ -3,8 +3,8 @@ import { motion, useScroll, useSpring, useTransform, useVelocity, useAnimationFr
 import { wrap } from '@motionone/utils';
 
 const skills = [
-  "Brand Strategy", "Visual Identity", "Web Design", "Motion Graphics", 
-  "3D Modeling", "Art Direction", "UI/UX Design", "Packaging", 
+  "Brand Strategy", "Visual Identity", "Web Design", "Motion Graphics",
+  "3D Modeling", "Art Direction", "UI/UX Design", "Packaging",
   "Social Media", "Illustration", "Typography", "Creative Direction"
 ];
 
@@ -14,20 +14,23 @@ interface ParallaxTextProps {
 }
 
 const MarqueeItem: React.FC<{ item: string }> = ({ item }) => {
-    return (
-        <motion.span 
-            className="text-4xl md:text-8xl font-black uppercase text-white md:text-transparent md:text-stroke-white opacity-80 md:opacity-30 hover:opacity-100 md:hover:text-white transition-all duration-300 cursor-default px-8"
-            style={{ WebkitTextStroke: "1px rgba(255,255,255,0.2)" } as React.CSSProperties}
-            whileHover={{ 
-                scale: 1.2, 
-                rotate: -2,
-                opacity: 1,
-                textShadow: "0 0 20px rgba(34, 197, 94, 0.5)" // Green 500
-            }}
-        >
-            {item}
-        </motion.span>
-    )
+  return (
+    <motion.span
+      className="text-4xl md:text-8xl font-black uppercase cursor-default px-8 transition-all duration-300"
+      style={{
+        color: 'transparent',
+        WebkitTextStroke: '1px rgba(255,255,255,0.3)',
+      } as React.CSSProperties}
+      whileHover={{
+        scale: 1.15,
+        color: '#ffffff',
+        WebkitTextStroke: '0px transparent',
+        textShadow: '0 0 40px rgba(255,255,255,0.5), 0 0 80px rgba(34, 197, 94, 0.4)',
+      } as any}
+    >
+      {item}
+    </motion.span>
+  )
 }
 
 const Marquee = ({ items, baseVelocity = 100 }: ParallaxTextProps) => {
@@ -38,7 +41,7 @@ const Marquee = ({ items, baseVelocity = 100 }: ParallaxTextProps) => {
     damping: 50,
     stiffness: 400
   });
-  
+
   const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 5], {
     clamp: false
   });
@@ -70,7 +73,7 @@ const Marquee = ({ items, baseVelocity = 100 }: ParallaxTextProps) => {
         className="flex pr-8 items-center"
       >
         {[...items, ...items, ...items, ...items].map((item, i) => (
-            <MarqueeItem key={i} item={item} />
+          <MarqueeItem key={i} item={item} />
         ))}
       </motion.div>
     </div>
@@ -79,12 +82,12 @@ const Marquee = ({ items, baseVelocity = 100 }: ParallaxTextProps) => {
 
 const Skills: React.FC = () => {
   return (
-    <section className="py-20 bg-[#050505] relative z-20 overflow-hidden border-y border-white/5">
+    <section className="py-20 bg-[#0f0f0f] relative z-20 overflow-hidden border-y border-white/5">
       <div className="rotate-[-2deg] scale-110">
-         <Marquee baseVelocity={-1} items={skills} />
-         <Marquee baseVelocity={1} items={skills} />
+        <Marquee baseVelocity={-1} items={skills} />
+        <Marquee baseVelocity={1} items={skills} />
       </div>
-      
+
       {/* Decorative gradient overlay */}
       <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-[#050505] via-transparent to-[#050505]" />
     </section>

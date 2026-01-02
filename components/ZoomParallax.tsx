@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { useScroll, useTransform, motion } from 'framer-motion';
+import { useScroll, useTransform, motion, useSpring } from 'framer-motion';
 
 export default function ZoomParallax() {
     const container = useRef(null);
@@ -8,19 +8,26 @@ export default function ZoomParallax() {
         offset: ['start start', 'end end']
     });
 
-    // Scale transforms for parallax effect
+    // Smooth the scroll progress for buttery animation
+    const smoothProgress = useSpring(scrollYProgress, {
+        stiffness: 100,
+        damping: 30,
+        restDelta: 0.001
+    });
+
+    // Scale transforms for parallax effect - using smoothed progress
     const scales = [
-        useTransform(scrollYProgress, [0, 1], [1, 4]),
-        useTransform(scrollYProgress, [0, 1], [1, 5.5]),
-        useTransform(scrollYProgress, [0, 1], [1, 8]),
-        useTransform(scrollYProgress, [0, 1], [1, 12]),
-        useTransform(scrollYProgress, [0, 1], [1, 18]),
-        useTransform(scrollYProgress, [0, 1], [1, 25]),
+        useTransform(smoothProgress, [0, 1], [1, 4]),
+        useTransform(smoothProgress, [0, 1], [1, 5.5]),
+        useTransform(smoothProgress, [0, 1], [1, 8]),
+        useTransform(smoothProgress, [0, 1], [1, 12]),
+        useTransform(smoothProgress, [0, 1], [1, 18]),
+        useTransform(smoothProgress, [0, 1], [1, 25]),
     ];
 
-    const textScale = useTransform(scrollYProgress, [0, 0.8], [1, 45]);
-    const textOpacity = useTransform(scrollYProgress, [0, 0.6, 0.8], [1, 1, 0]);
-    const opacityFade = useTransform(scrollYProgress, [0, 0.9, 1], [1, 1, 0]);
+    const textScale = useTransform(smoothProgress, [0, 0.8], [1, 45]);
+    const textOpacity = useTransform(smoothProgress, [0, 0.6, 0.8], [1, 1, 0]);
+    const opacityFade = useTransform(smoothProgress, [0, 0.9, 1], [1, 1, 0]);
 
     // 16 images for a rich parallax experience
     const pictures = [

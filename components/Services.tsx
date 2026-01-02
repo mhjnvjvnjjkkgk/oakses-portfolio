@@ -93,7 +93,7 @@ const Services: React.FC = () => {
   };
 
   return (
-    <section className="py-24 px-6 md:px-20 bg-[#050505] relative overflow-hidden">
+    <section className="py-24 px-6 md:px-20 bg-[#0f0f0f] relative overflow-hidden">
       <div
         className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full opacity-20 pointer-events-none"
         style={{
