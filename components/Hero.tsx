@@ -28,7 +28,7 @@ const HoverLetter: React.FC<{ char: string; delay: number }> = ({ char, delay })
 // ═══════════════════════════════════════════════════════════════
 const MobileHero: React.FC = () => {
   return (
-    <section className="min-h-screen w-full relative flex flex-col items-center justify-center overflow-hidden bg-[#0f0f0f] px-6 py-20 md:hidden">
+    <section className="min-h-screen w-full relative flex flex-col items-center justify-center overflow-hidden bg-transparent px-6 py-20 md:hidden">
 
       {/* Background glow */}
       <div
@@ -169,7 +169,7 @@ const DesktopHero: React.FC = () => {
   const text = 'PORTFOLIO';
 
   return (
-    <section className="min-h-screen w-full relative hidden md:flex items-center justify-center overflow-hidden bg-[#0f0f0f]">
+    <section className="min-h-screen w-full relative hidden md:flex items-center justify-center overflow-hidden bg-transparent">
 
       {/* Background glow */}
       <div

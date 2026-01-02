@@ -82,7 +82,7 @@ const Marquee = ({ items, baseVelocity = 100 }: ParallaxTextProps) => {
 
 const Skills: React.FC = () => {
   return (
-    <section className="py-20 bg-[#0f0f0f] relative z-20 overflow-hidden border-y border-white/5">
+    <section className="py-20 bg-transparent relative z-20 overflow-hidden border-y border-white/5">
       <div className="rotate-[-2deg] scale-110">
         <Marquee baseVelocity={-1} items={skills} />
         <Marquee baseVelocity={1} items={skills} />

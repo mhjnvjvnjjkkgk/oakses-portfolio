@@ -83,7 +83,7 @@ const WhatICanDo: React.FC = () => {
 
     return (
         <section
-            className="py-24 px-6 md:px-20 bg-[#0f0f0f] relative overflow-hidden"
+            className="py-24 px-6 md:px-20 bg-transparent relative overflow-hidden"
             onMouseMove={handleMouseMove}
         >
             {/* Cursor Preview Image */}

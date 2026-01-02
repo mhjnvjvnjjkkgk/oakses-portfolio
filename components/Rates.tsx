@@ -121,7 +121,7 @@ const Card: React.FC<CardProps> = ({ item, index }) => {
 
 const Rates: React.FC = () => {
   return (
-    <section className="py-32 px-6 md:px-20 bg-[#0f0f0f] relative z-20 overflow-hidden">
+    <section className="py-32 px-6 md:px-20 bg-transparent relative z-20 overflow-hidden">
       <ParallaxBackground />
       {/* Animated Background blobs */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">

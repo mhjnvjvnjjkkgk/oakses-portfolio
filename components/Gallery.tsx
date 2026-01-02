@@ -124,8 +124,8 @@ const Gallery: React.FC = () => {
   const opacityText = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
 
   return (
-    <section ref={targetRef} className="h-[300vh] bg-[#0f0f0f] relative z-20">
-      <div className="sticky top-0 flex h-screen items-center overflow-hidden perspective-1000 bg-[#0f0f0f]">
+    <section ref={targetRef} className="h-[300vh] bg-transparent relative z-20">
+      <div className="sticky top-0 flex h-screen items-center overflow-hidden perspective-1000 bg-transparent">
 
         {/* Parallax Background Text with Scroll Fade In */}
         <motion.div

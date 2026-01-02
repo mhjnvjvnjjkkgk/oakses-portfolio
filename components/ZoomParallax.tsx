@@ -136,7 +136,7 @@ export default function ZoomParallax() {
     ];
 
     return (
-        <div ref={container} className="h-[300vh] relative bg-[#0f0f0f]">
+        <div ref={container} className="h-[300vh] relative bg-transparent">
             <div className="sticky top-0 h-screen overflow-hidden flex items-center justify-center">
 
                 {/* Central Text */}

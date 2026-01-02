@@ -40,7 +40,7 @@ const Process: React.FC = () => {
   });
 
   return (
-    <section ref={containerRef} className="relative bg-[#0f0f0f] pt-20 pb-40 px-6 md:px-20 z-20 overflow-hidden">
+    <section ref={containerRef} className="relative bg-transparent pt-20 pb-40 px-6 md:px-20 z-20 overflow-hidden">
       <ParallaxBackground />
       <div className="max-w-7xl mx-auto relative z-10">
         <ZoomSection
@@ -104,7 +104,7 @@ const StepCard: React.FC<{ step: any; index: number; progress: MotionValue<numbe
       className={`relative flex flex-col md:flex-row items-start ${isEven ? 'md:flex-row-reverse' : ''} gap-10 md:gap-20`}
     >
       {/* Center Point - Lights up when line passes */}
-      <div className="absolute left-0 top-0 w-10 h-10 rounded-full bg-[#0f0f0f] border-4 border-white/10 z-10 md:left-1/2 md:-translate-x-1/2 flex items-center justify-center">
+      <div className="absolute left-0 top-0 w-10 h-10 rounded-full bg-transparent border-4 border-white/10 z-10 md:left-1/2 md:-translate-x-1/2 flex items-center justify-center">
         <motion.div
           style={{
             backgroundColor: color,

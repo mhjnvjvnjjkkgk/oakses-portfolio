@@ -62,7 +62,7 @@ const Services: React.FC = () => {
 
   return (
     <section
-      className="py-32 px-6 md:px-20 bg-[#0f0f0f] relative overflow-hidden"
+      className="py-32 px-6 md:px-20 bg-transparent relative overflow-hidden"
       onMouseMove={handleMouseMove}
     >
       {/* Floating Background Gradient */}

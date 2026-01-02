@@ -75,7 +75,7 @@ const About: React.FC = () => {
     <section
       ref={containerRef}
       id="about"
-      className="min-h-[150vh] w-full bg-[#0f0f0f] flex items-start justify-center py-32 px-6 md:px-20 relative overflow-hidden"
+      className="min-h-[150vh] w-full bg-transparent flex items-start justify-center py-32 px-6 md:px-20 relative overflow-hidden"
     >
       {/* Simple gradient background */}
       <div

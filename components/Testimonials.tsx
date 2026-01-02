@@ -35,7 +35,7 @@ const Testimonials: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section className="py-32 bg-[#0f0f0f] relative z-20 overflow-hidden border-t border-white/5">
+    <section className="py-32 bg-transparent relative z-20 overflow-hidden border-t border-white/5">
       <div className="max-w-7xl mx-auto px-6 md:px-20 mb-16 relative z-10">
         <ZoomSection>
           <h2 className="text-sm font-bold tracking-[0.3em] text-green-500 uppercase mb-4">Testimonials</h2>

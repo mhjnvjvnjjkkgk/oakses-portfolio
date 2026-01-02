@@ -43,7 +43,7 @@ const Contact: React.FC = () => {
 
   return (
     <section
-      className="min-h-screen bg-[#0f0f0f] flex flex-col justify-between pt-32 pb-10 px-6 md:px-20 relative z-20 overflow-hidden"
+      className="min-h-screen bg-transparent flex flex-col justify-between pt-32 pb-10 px-6 md:px-20 relative z-20 overflow-hidden"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >

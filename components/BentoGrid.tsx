@@ -8,7 +8,7 @@ import AnimatedCounter from './AnimatedCounter';
 
 const BentoGrid: React.FC = () => {
     return (
-        <section className="py-32 px-6 md:px-20 bg-[#0f0f0f] relative z-20 overflow-hidden">
+        <section className="py-32 px-6 md:px-20 bg-transparent relative z-20 overflow-hidden">
             <div className="max-w-7xl mx-auto relative z-10">
                 <ZoomSection className="mb-20 text-center">
                     <h2 className="text-sm font-bold tracking-[0.3em] text-green-500 uppercase mb-4">Why Choose Me</h2>
