@@ -29,10 +29,10 @@ export function EtherealShadow({
     className,
     children
 }: EtherealShadowProps) {
-    // Map speed (1-100) to duration (30s-5s) - higher speed = shorter duration
-    const duration = Math.max(5, 35 - (animation.speed * 0.3));
+    // Map speed (1-100) to duration - higher speed = shorter duration (faster animation)
+    const duration = Math.max(3, 20 - (animation.speed * 0.17));
     // Map scale (1-100) to size multiplier
-    const sizeMultiplier = 0.5 + (animation.scale / 100);
+    const sizeMultiplier = 0.6 + (animation.scale / 100) * 0.8;
 
     return (
         <div
@@ -45,119 +45,155 @@ export function EtherealShadow({
                 ...style
             }}
         >
-            {/* CSS Keyframe Animations */}
+            {/* CSS Keyframe Animations - MORE VISIBLE */}
             <style>{`
-                @keyframes etherealMove1 {
-                    0%, 100% { 
+                @keyframes etherealWave1 {
+                    0% { 
+                        transform: translate(0%, 0%) scale(1) rotate(0deg);
+                    }
+                    20% { 
+                        transform: translate(25%, -20%) scale(1.2) rotate(2deg);
+                    }
+                    40% { 
+                        transform: translate(-15%, 25%) scale(0.9) rotate(-3deg);
+                    }
+                    60% { 
+                        transform: translate(-30%, -15%) scale(1.15) rotate(4deg);
+                    }
+                    80% { 
+                        transform: translate(20%, 15%) scale(0.85) rotate(-2deg);
+                    }
+                    100% { 
+                        transform: translate(0%, 0%) scale(1) rotate(0deg);
+                    }
+                }
+                
+                @keyframes etherealWave2 {
+                    0% { 
                         transform: translate(0%, 0%) scale(1);
-                        opacity: 0.7;
                     }
                     25% { 
-                        transform: translate(10%, -15%) scale(1.1);
-                        opacity: 0.9;
+                        transform: translate(-35%, 20%) scale(1.25);
                     }
                     50% { 
-                        transform: translate(-5%, 10%) scale(0.95);
-                        opacity: 0.6;
+                        transform: translate(30%, -25%) scale(0.85);
                     }
                     75% { 
-                        transform: translate(-15%, -5%) scale(1.05);
-                        opacity: 0.8;
+                        transform: translate(-20%, -30%) scale(1.1);
+                    }
+                    100% { 
+                        transform: translate(0%, 0%) scale(1);
                     }
                 }
                 
-                @keyframes etherealMove2 {
-                    0%, 100% { 
-                        transform: translate(0%, 0%) scale(1);
-                        opacity: 0.6;
+                @keyframes etherealWave3 {
+                    0% { 
+                        transform: translate(0%, 0%) scale(1) rotate(0deg);
                     }
                     33% { 
-                        transform: translate(-20%, 15%) scale(1.15);
-                        opacity: 0.8;
+                        transform: translate(20%, 30%) scale(1.3) rotate(5deg);
                     }
                     66% { 
-                        transform: translate(15%, -10%) scale(0.9);
-                        opacity: 0.5;
+                        transform: translate(-25%, -20%) scale(0.8) rotate(-5deg);
+                    }
+                    100% { 
+                        transform: translate(0%, 0%) scale(1) rotate(0deg);
                     }
                 }
                 
-                @keyframes etherealMove3 {
+                @keyframes etherealWave4 {
                     0%, 100% { 
-                        transform: translate(0%, 0%) rotate(0deg) scale(1);
-                        opacity: 0.5;
+                        transform: translateX(0%) translateY(0%);
                     }
                     50% { 
-                        transform: translate(10%, 10%) rotate(5deg) scale(1.1);
-                        opacity: 0.7;
+                        transform: translateX(-40%) translateY(20%);
                     }
                 }
                 
-                @keyframes etherealPulse {
-                    0%, 100% { opacity: 0.3; }
-                    50% { opacity: 0.6; }
+                @keyframes noiseShift {
+                    0% { 
+                        transform: translate(0, 0);
+                        opacity: 0.4;
+                    }
+                    25% {
+                        transform: translate(-3px, 3px);
+                        opacity: 0.6;
+                    }
+                    50% { 
+                        transform: translate(3px, -3px);
+                        opacity: 0.3;
+                    }
+                    75% {
+                        transform: translate(-2px, -2px);
+                        opacity: 0.5;
+                    }
+                    100% { 
+                        transform: translate(0, 0);
+                        opacity: 0.4;
+                    }
                 }
             `}</style>
 
-            {/* Shadow Layer 1 - Large moving blob */}
+            {/* Shadow Layer 1 - Large moving blob TOP LEFT */}
+            <div
+                style={{
+                    position: "absolute",
+                    top: "-30%",
+                    left: "-30%",
+                    width: `${150 * sizeMultiplier}%`,
+                    height: `${150 * sizeMultiplier}%`,
+                    background: `radial-gradient(ellipse 50% 40% at 40% 40%, ${color} 0%, transparent 55%)`,
+                    filter: "blur(40px)",
+                    animation: `etherealWave1 ${duration}s ease-in-out infinite`,
+                    willChange: "transform"
+                }}
+            />
+
+            {/* Shadow Layer 2 - Blob TOP RIGHT */}
             <div
                 style={{
                     position: "absolute",
                     top: "-20%",
-                    left: "-20%",
+                    right: "-40%",
                     width: `${140 * sizeMultiplier}%`,
                     height: `${140 * sizeMultiplier}%`,
-                    background: `radial-gradient(ellipse 60% 50% at 30% 40%, ${color} 0%, transparent 60%)`,
-                    filter: "blur(60px)",
-                    animation: `etherealMove1 ${duration}s ease-in-out infinite`,
-                    willChange: "transform, opacity"
+                    background: `radial-gradient(ellipse 45% 55% at 60% 50%, ${color} 0%, transparent 50%)`,
+                    filter: "blur(50px)",
+                    animation: `etherealWave2 ${duration * 1.2}s ease-in-out infinite`,
+                    animationDelay: `-${duration * 0.4}s`,
+                    willChange: "transform"
                 }}
             />
 
-            {/* Shadow Layer 2 - Medium blob opposite corner */}
+            {/* Shadow Layer 3 - Blob BOTTOM LEFT */}
             <div
                 style={{
                     position: "absolute",
-                    top: "-10%",
-                    right: "-30%",
+                    bottom: "-25%",
+                    left: "-20%",
                     width: `${120 * sizeMultiplier}%`,
                     height: `${130 * sizeMultiplier}%`,
-                    background: `radial-gradient(ellipse 50% 60% at 70% 60%, ${color} 0%, transparent 55%)`,
-                    filter: "blur(50px)",
-                    animation: `etherealMove2 ${duration * 1.3}s ease-in-out infinite`,
-                    animationDelay: `-${duration * 0.3}s`,
-                    willChange: "transform, opacity"
+                    background: `radial-gradient(ellipse 55% 45% at 35% 60%, ${color} 0%, transparent 50%)`,
+                    filter: "blur(45px)",
+                    animation: `etherealWave3 ${duration * 0.9}s ease-in-out infinite`,
+                    animationDelay: `-${duration * 0.7}s`,
+                    willChange: "transform"
                 }}
             />
 
-            {/* Shadow Layer 3 - Center pulsing */}
+            {/* Shadow Layer 4 - Blob BOTTOM RIGHT */}
             <div
                 style={{
                     position: "absolute",
-                    top: "10%",
-                    left: "20%",
+                    bottom: "-35%",
+                    right: "-25%",
                     width: `${100 * sizeMultiplier}%`,
-                    height: `${100 * sizeMultiplier}%`,
-                    background: `radial-gradient(ellipse 40% 40% at 50% 50%, ${color} 0%, transparent 50%)`,
-                    filter: "blur(80px)",
-                    animation: `etherealMove3 ${duration * 1.5}s ease-in-out infinite`,
-                    animationDelay: `-${duration * 0.6}s`,
-                    willChange: "transform, opacity"
-                }}
-            />
-
-            {/* Shadow Layer 4 - Bottom accent */}
-            <div
-                style={{
-                    position: "absolute",
-                    bottom: "-30%",
-                    left: "10%",
-                    width: `${80 * sizeMultiplier}%`,
-                    height: `${80 * sizeMultiplier}%`,
-                    background: `radial-gradient(ellipse 70% 40% at 40% 70%, ${color} 0%, transparent 50%)`,
-                    filter: "blur(70px)",
-                    animation: `etherealMove1 ${duration * 1.2}s ease-in-out infinite reverse`,
-                    animationDelay: `-${duration * 0.5}s`,
-                    willChange: "transform, opacity"
+                    height: `${110 * sizeMultiplier}%`,
+                    background: `radial-gradient(ellipse 50% 50% at 65% 55%, ${color} 0%, transparent 55%)`,
+                    filter: "blur(55px)",
+                    animation: `etherealWave4 ${duration * 1.5}s ease-in-out infinite`,
+                    animationDelay: `-${duration * 0.2}s`,
+                    willChange: "transform"
                 }}
             />
 
@@ -168,18 +204,18 @@ export function EtherealShadow({
                 </div>
             )}
 
-            {/* Noise Overlay */}
+            {/* Animated Noise Overlay */}
             {noise && noise.opacity > 0 && (
                 <div
                     style={{
                         position: "absolute",
-                        inset: 0,
-                        opacity: noise.opacity * 0.4,
+                        inset: "-10px",
+                        opacity: noise.opacity * 0.5,
                         pointerEvents: "none",
-                        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+                        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
                         backgroundRepeat: 'repeat',
-                        backgroundSize: `${noise.scale * 150}px ${noise.scale * 150}px`,
-                        animation: `etherealPulse ${duration * 0.5}s ease-in-out infinite`
+                        backgroundSize: `${noise.scale * 200}px ${noise.scale * 200}px`,
+                        animation: `noiseShift 0.15s steps(4) infinite`
                     }}
                 />
             )}
