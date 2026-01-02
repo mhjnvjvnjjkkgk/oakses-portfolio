@@ -204,18 +204,17 @@ export function EtherealShadow({
                 </div>
             )}
 
-            {/* Animated Noise Overlay */}
+            {/* Static Noise Overlay - no flickering */}
             {noise && noise.opacity > 0 && (
                 <div
                     style={{
                         position: "absolute",
-                        inset: "-10px",
-                        opacity: noise.opacity * 0.5,
+                        inset: 0,
+                        opacity: noise.opacity * 0.3,
                         pointerEvents: "none",
                         backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
                         backgroundRepeat: 'repeat',
-                        backgroundSize: `${noise.scale * 200}px ${noise.scale * 200}px`,
-                        animation: `noiseShift 0.15s steps(4) infinite`
+                        backgroundSize: `${noise.scale * 200}px ${noise.scale * 200}px`
                     }}
                 />
             )}
