@@ -31,7 +31,7 @@ const AccordionItem = ({ i, expanded, setExpanded, question, answer }: any) => {
   const isOpen = i === expanded;
 
   return (
-    <motion.div 
+    <motion.div
       initial={false}
       className="border-b border-white/10"
     >
@@ -76,24 +76,24 @@ const FAQ: React.FC = () => {
   const [expanded, setExpanded] = useState<number | false>(0);
 
   return (
-    <section className="py-32 px-6 md:px-20 bg-[#050505] relative z-20">
+    <section className="py-32 px-6 md:px-20 bg-[#0f0f0f] relative z-20">
       <div className="max-w-4xl mx-auto relative z-10">
         <ZoomSection className="mb-20 text-center">
-            <h2 className="text-sm font-bold tracking-[0.3em] text-green-500 uppercase mb-4">Common Queries</h2>
-            <div className="text-4xl md:text-5xl font-black text-white flex justify-center">
-                <InteractiveHeading text="Frequently Asked" />
-            </div>
+          <h2 className="text-sm font-bold tracking-[0.3em] text-green-500 uppercase mb-4">Common Queries</h2>
+          <div className="text-4xl md:text-5xl font-black text-white flex justify-center">
+            <InteractiveHeading text="Frequently Asked" />
+          </div>
         </ZoomSection>
 
         <div className="w-full">
           {faqs.map((faq, i) => (
-            <AccordionItem 
-                key={i} 
-                i={i} 
-                expanded={expanded} 
-                setExpanded={setExpanded} 
-                question={faq.question} 
-                answer={faq.answer} 
+            <AccordionItem
+              key={i}
+              i={i}
+              expanded={expanded}
+              setExpanded={setExpanded}
+              question={faq.question}
+              answer={faq.answer}
             />
           ))}
         </div>

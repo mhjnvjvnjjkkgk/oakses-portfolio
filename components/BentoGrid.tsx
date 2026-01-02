@@ -4,6 +4,7 @@ import { Clock, Globe, Award, Heart } from 'lucide-react';
 import { TiltCard } from './ui/TiltCard';
 import { ZoomSection } from './ui/ZoomSection';
 import { InteractiveHeading } from './ui/InteractiveHeading';
+import AnimatedCounter from './AnimatedCounter';
 
 const BentoGrid: React.FC = () => {
     return (
@@ -98,11 +99,11 @@ const BentoGrid: React.FC = () => {
 
                             <div className="mt-10 grid grid-cols-2 gap-4 relative z-10">
                                 <div className="text-center p-4 bg-white/5 rounded-xl border border-white/5 group-hover:bg-white/10 transition-colors">
-                                    <span className="block text-2xl font-bold text-white">15+</span>
+                                    <AnimatedCounter target={15} suffix="+" className="block text-2xl font-bold text-white" />
                                     <span className="text-xs text-gray-500 uppercase">Countries</span>
                                 </div>
                                 <div className="text-center p-4 bg-white/5 rounded-xl border border-white/5 group-hover:bg-white/10 transition-colors">
-                                    <span className="block text-2xl font-bold text-white">100+</span>
+                                    <AnimatedCounter target={100} suffix="+" className="block text-2xl font-bold text-white" />
                                     <span className="text-xs text-gray-500 uppercase">Clients</span>
                                 </div>
                             </div>
@@ -159,7 +160,7 @@ const BentoGrid: React.FC = () => {
 
                 </div>
             </div>
-        </section>
+        </section >
     );
 };
 

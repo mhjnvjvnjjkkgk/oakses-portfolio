@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, ExternalLink } from 'lucide-react';
+import AnimatedCounter from './AnimatedCounter';
 
 // Scroll-based text animation component
 interface ScrollTextProps {
@@ -12,7 +13,7 @@ const ScrollText: React.FC<ScrollTextProps> = ({ text, className = '' }) => {
   const containerRef = useRef<HTMLSpanElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ['start 0.9', 'start 0.3']
+    offset: ['start 0.95', 'start 0.6']  // Faster reveal - less scroll needed
   });
 
   const words = text.split(' ');
@@ -85,78 +86,95 @@ const About: React.FC = () => {
         }}
       />
 
-      <div className="max-w-5xl w-full relative z-10 sticky top-32">
+      {/* Two Column Layout: Card Space (Left) + Content (Right) */}
+      <div className="max-w-7xl w-full relative z-10 sticky top-32 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-16">
 
-        {/* Section Label */}
-        <motion.span
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-sm font-bold tracking-[0.3em] text-green-500 uppercase mb-8 block"
-        >
-          About Me
-        </motion.span>
+        {/* Left Column - Space for RotatingCard to freeze into */}
+        <div className="hidden md:flex md:col-span-4 relative justify-center min-h-[400px]">
+          {/* RotatingCard freezes here via fixed positioning */}
+        </div>
 
-        {/* Main Scroll Text */}
-        <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-12">
-          <ScrollText
-            text="I'm OAKSES – a multi-disciplinary designer with over 6 years of experience crafting visual identities that stand out."
-          />
-        </h2>
-
-        <p className="text-xl md:text-2xl font-light leading-relaxed mb-8">
-          <ScrollText
-            text="From Discord server branding to jersey designs, I've helped countless communities and businesses establish their visual presence."
-          />
-        </p>
-
-        <p className="text-lg md:text-xl text-gray-400 font-light leading-relaxed mb-12">
-          <ScrollText
-            text="I've worked as the official designer for multiple 150K+ member Discord servers, creating everything from logos and banners to complete brand identities."
-          />
-        </p>
-
-        {/* Stats */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="flex flex-wrap gap-12 mb-12"
-        >
-          <div>
-            <span className="text-5xl md:text-6xl font-bold text-green-400">6+</span>
-            <p className="text-gray-500 text-sm uppercase tracking-wider mt-2">Years Experience</p>
-          </div>
-          <div>
-            <span className="text-5xl md:text-6xl font-bold text-green-400">150K+</span>
-            <p className="text-gray-500 text-sm uppercase tracking-wider mt-2">Discord Members Served</p>
-          </div>
-        </motion.div>
-
-        {/* CTA Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="flex flex-wrap gap-4"
-        >
-          <a
-            href="#contact"
-            className="group flex items-center gap-3 px-6 py-3 bg-green-500 text-black font-semibold rounded-full hover:bg-green-400 transition-colors"
+        {/* Right Column - Content */}
+        <div className="md:col-span-8">
+          {/* Section Label */}
+          <motion.span
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-sm font-bold tracking-[0.3em] text-green-500 uppercase mb-8 block"
           >
-            Work With Me
-            <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-          </a>
-          <a
-            href="https://www.elevez.shop"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group flex items-center gap-3 px-6 py-3 border border-white/20 text-white rounded-full hover:border-green-500/50 hover:bg-white/5 transition-all"
+            About Me
+          </motion.span>
+
+          {/* Main Scroll Text */}
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-12">
+            <ScrollText
+              text="I'm OAKSES – a multi-disciplinary designer with over 6 years of experience crafting visual identities that stand out."
+            />
+          </h2>
+
+          <p className="text-xl md:text-2xl font-light leading-relaxed mb-8">
+            <ScrollText
+              text="From Discord server branding to jersey designs, I've helped countless communities and businesses establish their visual presence."
+            />
+          </p>
+
+          <p className="text-lg md:text-xl text-gray-400 font-light leading-relaxed mb-12">
+            <ScrollText
+              text="I've worked as the official designer for multiple 150K+ member Discord servers, creating everything from logos and banners to complete brand identities."
+            />
+          </p>
+
+          {/* Stats */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex flex-wrap gap-12 mb-12"
           >
-            Visit Elevez Shop
-            <ExternalLink size={16} />
-          </a>
-        </motion.div>
+            <div>
+              <AnimatedCounter
+                target={6}
+                suffix="+"
+                className="text-5xl md:text-6xl font-bold text-green-400"
+              />
+              <p className="text-gray-500 text-sm uppercase tracking-wider mt-2">Years Experience</p>
+            </div>
+            <div>
+              <AnimatedCounter
+                target={150}
+                suffix="K+"
+                className="text-5xl md:text-6xl font-bold text-green-400"
+              />
+              <p className="text-gray-500 text-sm uppercase tracking-wider mt-2">Discord Members Served</p>
+            </div>
+          </motion.div>
+
+          {/* CTA Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="flex flex-wrap gap-4"
+          >
+            <a
+              href="#contact"
+              className="group flex items-center gap-3 px-6 py-3 bg-green-500 text-black font-semibold rounded-full hover:bg-green-400 transition-colors"
+            >
+              Work With Me
+              <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+            </a>
+            <a
+              href="https://www.elevez.shop"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-3 px-6 py-3 border border-white/20 text-white rounded-full hover:border-green-500/50 hover:bg-white/5 transition-all"
+            >
+              Visit Elevez Shop
+              <ExternalLink size={16} />
+            </a>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

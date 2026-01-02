@@ -136,7 +136,7 @@ export default function ZoomParallax() {
     ];
 
     return (
-        <div ref={container} className="h-[300vh] relative bg-[#050505]">
+        <div ref={container} className="h-[300vh] relative bg-[#0f0f0f]">
             <div className="sticky top-0 h-screen overflow-hidden flex items-center justify-center">
 
                 {/* Central Text */}
@@ -174,7 +174,7 @@ export default function ZoomParallax() {
                     </motion.div>
                 ))}
 
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#050505_90%)] pointer-events-none z-10" />
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#0f0f0f_90%)] pointer-events-none z-10" />
             </div>
         </div>
     );

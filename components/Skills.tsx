@@ -89,7 +89,7 @@ const Skills: React.FC = () => {
       </div>
 
       {/* Decorative gradient overlay */}
-      <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-[#050505] via-transparent to-[#050505]" />
+      <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-[#0f0f0f] via-transparent to-[#0f0f0f]" />
     </section>
   );
 };

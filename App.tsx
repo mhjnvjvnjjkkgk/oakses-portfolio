@@ -14,6 +14,33 @@ import Testimonials from './components/Testimonials';
 import FAQ from './components/FAQ';
 import { Connect } from './components/Connect';
 import ZoomParallax from './components/ZoomParallax';
+import RotatingCard from './components/RotatingCard';
+import WhatICanDo from './components/WhatICanDo';
+
+// Animated Noise Background Component
+const NoiseBackground: React.FC = () => (
+  <>
+    <div
+      className="fixed inset-0 pointer-events-none z-[9999]"
+      style={{
+        opacity: 0.08,
+        backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+        backgroundRepeat: 'repeat',
+        backgroundSize: '200px 200px',
+        animation: 'noise 0.2s steps(5) infinite',
+      }}
+    />
+    <style>{`
+      @keyframes noise {
+        0% { transform: translate(0, 0); }
+        25% { transform: translate(-5px, 5px); }
+        50% { transform: translate(5px, -5px); }
+        75% { transform: translate(-5px, -5px); }
+        100% { transform: translate(5px, 5px); }
+      }
+    `}</style>
+  </>
+);
 
 function App() {
 
@@ -26,6 +53,12 @@ function App() {
 
   return (
     <div className="bg-[#0f0f0f] min-h-screen text-white selection:bg-green-500 selection:text-white">
+      {/* Animated Noise Overlay */}
+      <NoiseBackground />
+
+      {/* 3D Rotating Card that follows scroll */}
+      <RotatingCard />
+
       <Navigation />
 
       <main>
@@ -33,6 +66,7 @@ function App() {
         <div id="about">
           <About />
         </div>
+        <WhatICanDo />
         <Skills />
         <BentoGrid />
 
