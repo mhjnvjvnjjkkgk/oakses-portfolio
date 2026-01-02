@@ -55,13 +55,12 @@ function App() {
   return (
     <div className="bg-[#0f0f0f] min-h-screen text-white selection:bg-green-500 selection:text-white">
 
-      {/* Ethereal Shadow Animated Background */}
-      <div className="fixed inset-0 z-0 pointer-events-none">
+      {/* Ethereal Shadow Animated Overlay */}
+      <div className="fixed inset-0 z-[3] pointer-events-none">
         <EtherealShadow
-          color="rgba(34, 197, 94, 0.15)"
-          animation={{ scale: 60, speed: 30 }}
-          noise={{ opacity: 0.3, scale: 1 }}
-          sizing="fill"
+          color="rgba(60, 60, 60, 1)"
+          animation={{ scale: 70, speed: 40 }}
+          noise={{ opacity: 0.4, scale: 1.5 }}
         />
       </div>
 
