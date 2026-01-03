@@ -16,7 +16,7 @@ import { Connect } from './components/Connect';
 import ZoomParallax from './components/ZoomParallax';
 import RotatingCard from './components/RotatingCard';
 import WhatICanDo from './components/WhatICanDo';
-import { EtherealShadow } from './components/ui/ethereal-shadow';
+import { GlobalGrid } from './components/ui/GlobalGrid';
 
 // Animated Noise Overlay - BASE LAYER with animation
 const NoiseOverlay: React.FC<{ opacity?: number }> = ({ opacity = 0.4 }) => (
@@ -42,7 +42,7 @@ const NoiseOverlay: React.FC<{ opacity?: number }> = ({ opacity = 0.4 }) => (
         inset: 0,
         zIndex: 1,
         pointerEvents: 'none',
-        backgroundColor: '#1a1a1a',
+        // backgroundColor: '#1a1a1a', // Removed to let GlobalGrid show through
         overflow: 'hidden',
       }}
     >
@@ -81,7 +81,10 @@ function App() {
       {/* Global keyframes for noise animation */}
 
 
-      {/* Animated Noise - BASE LAYER */}
+      {/* Global Interactive Grid - BASE LAYER (z-0) */}
+      <GlobalGrid />
+
+      {/* Animated Noise - TEXTURE LAYER (z-1) */}
       <NoiseOverlay opacity={noiseOpacity} />
 
       {/* 3D Rotating Card that follows scroll */}
