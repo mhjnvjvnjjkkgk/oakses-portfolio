@@ -14,7 +14,7 @@ const rates = [
     description: "Professional logo design specially made for your niche.",
     features: ["2 Free Revisions", "High Quality Render", "Source Files", "Fast Delivery"],
     color: "#4ade80",
-    previewImage: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=300&h=200&fit=crop"
+    previewImage: "/samples/logo/images (1).png"
   },
   {
     title: "Website Creation",
@@ -23,7 +23,7 @@ const rates = [
     description: "Beautifully animated, handcrafted websites for business or portfolio.",
     features: ["Handcrafted Code", "Full Source Code Provided", "Setup Instructions", "Animations Included"],
     color: "#10b981",
-    previewImage: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=300&h=200&fit=crop"
+    previewImage: "/samples/others/new point table (9).jpg"
   },
   {
     title: "Jersey Design",
@@ -32,7 +32,7 @@ const rates = [
     description: "Custom jersey designs made ready for printing.",
     features: ["Print-Ready Files", "Multiple Name Variations", "Printing Available (₹400)", "Shipping Available (₹60)"],
     color: "#2dd4bf",
-    previewImage: "https://images.unsplash.com/photo-1577212017184-80cc0da11274?w=300&h=200&fit=crop"
+    previewImage: "/samples/jersey/arpan front.jpeg"
   },
   {
     title: "Thumbnail Design",
@@ -41,7 +41,7 @@ const rates = [
     description: "High-CTR thumbnails that look great for your specific genre.",
     features: ["Genre-Specific Style", "High Resolution", "Click-Optimized", "Quick Turnaround"],
     color: "#a3e635",
-    previewImage: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=300&h=200&fit=crop"
+    previewImage: "/samples/thumbnails/thumbanil 1.jpg"
   },
   {
     title: "Poster Design",
@@ -50,7 +50,7 @@ const rates = [
     description: "Creative posters for events, promotions, and announcements.",
     features: ["Event-Focused", "Print & Digital Ready", "Eye-Catching Layouts", "Custom Graphics"],
     color: "#f472b6",
-    previewImage: "https://images.unsplash.com/photo-1558485203-b5413009da02?w=300&h=200&fit=crop"
+    previewImage: "/samples/poster/Poster (6).jpg"
   },
   {
     title: "Brand Identity",

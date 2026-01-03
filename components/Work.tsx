@@ -61,6 +61,12 @@ const projects: ProjectItem[] = [
   { id: 35, category: "Poster Design", title: "Rabindra Jayanti", image: "/samples/poster/rabindra jayanti shayak das.jpg" },
   { id: 36, category: "Poster Design", title: "Scrims Poster", image: "/samples/poster/scrims poster (1).jpg" },
   { id: 37, category: "Poster Design", title: "Showdown Poster", image: "/samples/poster/shunday showdown test 2 (8).jpg" },
+  { id: 38, category: "Poster Design", title: "Tournament Roadmap", image: "/samples/others/Roadmap (7).jpg" },
+  { id: 39, category: "Poster Design", title: "Point Table", image: "/samples/others/new point table (9).jpg" },
+  { id: 40, category: "Poster Design", title: "Nov Point Table", image: "/samples/others/nov 29 point table (1).jpg" },
+  { id: 41, category: "Poster Design", title: "Ravenclaw House", image: "/samples/others/ravenclaw (18).jpg" },
+  { id: 42, category: "Poster Design", title: "Slot List", image: "/samples/others/slot list 2 (2).jpg" },
+  { id: 43, category: "Poster Design", title: "Submission Form", image: "/samples/others/submission (1).jpg" },
 ];
 
 const Work: React.FC = () => {

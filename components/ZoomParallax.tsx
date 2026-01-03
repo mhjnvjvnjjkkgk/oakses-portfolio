@@ -33,96 +33,102 @@ export default function ZoomParallax() {
     const pictures = [
         // Layer 1 - Deep Background (slowest)
         {
-            src: "https://picsum.photos/600/800?random=1",
+            src: "/samples/jersey/arpan front.jpeg",
             scale: scales[0],
             rotation: -5,
             className: "w-[22vw] h-[20vh] -top-[30vh] -left-[26vw]"
         },
         {
-            src: "https://picsum.photos/800/600?random=2",
+            src: "/samples/thumbnails/17 - dec 2020.jpg",
             scale: scales[0],
             rotation: 4,
             className: "w-[24vw] h-[18vh] -top-[26vh] left-[20vw]"
         },
         {
-            src: "https://picsum.photos/700/700?random=16",
+            src: "/samples/logo/si esports (4) (1).jpg",
             scale: scales[0],
             rotation: -2,
             className: "w-[20vw] h-[18vh] top-[28vh] left-[38vw]"
         },
         // Layer 2
         {
-            src: "https://picsum.photos/500/700?random=3",
+            src: "/samples/poster/FOR RAVENCLAW (1).jpg",
             scale: scales[1],
             rotation: -3,
             className: "w-[16vw] h-[24vh] top-[20vh] -left-[26vw]"
         },
         {
-            src: "https://picsum.photos/700/500?random=4",
+            src: "/samples/thumbnails/Thumbnail - 2.jpg",
             scale: scales[1],
             rotation: 5,
             className: "w-[18vw] h-[16vh] top-[24vh] left-[24vw]"
         },
         {
-            src: "https://picsum.photos/600/500?random=15",
+            src: "/samples/jersey/bleeder front.jpeg",
             scale: scales[1],
             rotation: -4,
             className: "w-[16vw] h-[14vh] -top-[34vh] left-[5vw]"
         },
         // Layer 3
         {
-            src: "https://picsum.photos/600/600?random=5",
+            src: "/samples/poster/gandhi jayanti simple by shayak.jpg",
             scale: scales[2],
             rotation: 2,
             className: "w-[14vw] h-[14vh] -top-[10vh] -left-[36vw]"
         },
         {
-            src: "https://picsum.photos/650/450?random=6",
+            src: "/samples/thumbnails/thumbnail (2).jpg",
             scale: scales[2],
             rotation: -4,
             className: "w-[16vw] h-[12vh] top-[6vh] left-[32vw]"
         },
         {
-            src: "https://picsum.photos/550/550?random=11",
+            src: "/samples/jersey/nvd front.jpeg",
             scale: scales[2],
             rotation: 6,
             className: "w-[12vw] h-[12vh] top-[32vh] -left-[8vw]"
         },
         // Layer 4
         {
-            src: "https://picsum.photos/500/500?random=7",
+            src: "/samples/poster/rabindra jayanti shayak das.jpg",
             scale: scales[3],
             rotation: 6,
             className: "w-[11vw] h-[10vh] -top-[36vh] left-[10vw]"
         },
         {
-            src: "https://picsum.photos/450/650?random=8",
+            src: "/samples/jersey/pxg front.jpeg",
             scale: scales[3],
             rotation: -2,
             className: "w-[12vw] h-[16vh] top-[32vh] -left-[14vw]"
         },
         {
-            src: "https://picsum.photos/480/480?random=13",
+            src: "/samples/thumbnails/thumbnail 3 (1).jpg",
             scale: scales[3],
             rotation: -7,
             className: "w-[10vw] h-[10vh] -top-[20vh] left-[38vw]"
         },
         // Layer 5
         {
-            src: "https://picsum.photos/400/400?random=9",
+            src: "/samples/poster/scrims poster (1).jpg",
             scale: scales[4],
             rotation: 8,
             className: "w-[9vw] h-[9vh] top-[4vh] -left-[16vw]"
         },
         {
-            src: "https://picsum.photos/400/600?random=10",
+            src: "/samples/jersey/tubu front.jpeg",
             scale: scales[4],
             rotation: -6,
-            className: "w-[10vw] h-[12vh] -top-[16vh] left-[14vw]"
+            className: "w-[9vw] h-[14vh] -top-[26vh] left-[28vw]"
+        },
+        {
+            src: "/samples/thumbnails/thumbnail 5 (4).jpg",
+            scale: scales[4],
+            rotation: 4,
+            className: "w-[8vw] h-[8vh] top-[12vh] left-[1vw]"
         },
         // Layer 6 - Foreground (fastest)
         {
-            src: "https://picsum.photos/480/680?random=12",
+            src: "/samples/thumbnails/thumbnail 5 (4).jpg", // This was the original picsum.photos/480/680?random=12
             scale: scales[5],
             rotation: 10,
             className: "w-[8vw] h-[10vh] -top-[22vh] -left-[40vw]"

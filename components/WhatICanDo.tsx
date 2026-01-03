@@ -22,7 +22,7 @@ const services: ServiceItem[] = [
             "Usability testing and user feedback analysis",
             "Interaction design and micro-animations"
         ],
-        previewImage: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=300&h=200&fit=crop"
+        previewImage: "/samples/thumbnails/Thumbnail - 2.jpg"
     },
     {
         id: "02",
@@ -34,7 +34,7 @@ const services: ServiceItem[] = [
             "Marketing materials (brochures, flyers)",
             "Vector illustrations and iconography"
         ],
-        previewImage: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=300&h=200&fit=crop"
+        previewImage: "/samples/logo/si esports (4) (1).jpg"
     },
     {
         id: "03",
@@ -46,7 +46,7 @@ const services: ServiceItem[] = [
             "Webflow / Framer development",
             "Design systems and style guides"
         ],
-        previewImage: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=300&h=200&fit=crop"
+        previewImage: "/samples/others/Roadmap (7).jpg"
     },
     {
         id: "04",
@@ -58,7 +58,7 @@ const services: ServiceItem[] = [
             "Logo suites and variations",
             "Corporate stationery design"
         ],
-        previewImage: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=300&h=200&fit=crop"
+        previewImage: "/samples/jersey/sir mockup.png"
     }
 ];
 
