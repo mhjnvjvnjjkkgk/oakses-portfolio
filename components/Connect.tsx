@@ -71,32 +71,32 @@ export function Connect() {
                     ref={scope}
                   >
                     <div className="absolute left-1/2 top-1/2 h-16 w-16 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/5 border border-white/10 flex items-center justify-center">
-                        <span className="font-black tracking-tighter text-white">OAKSES</span>
+                      <span className="font-black tracking-tighter text-white">OAKSES</span>
                     </div>
-                    
+
                     <div
                       id="ui-ux"
                       className="absolute bottom-12 left-14 rounded-3xl border border-white/20 bg-white/5 px-2 py-1.5 text-xs text-white opacity-50 flex items-center gap-1"
                     >
-                      <Layout size={12} className="text-green-400"/> UI/UX
+                      <Layout size={12} className="text-green-400" /> UI/UX
                     </div>
                     <div
                       id="graphic-design"
                       className="absolute left-2 top-20 rounded-3xl border border-white/20 bg-white/5 px-2 py-1.5 text-xs text-white opacity-50 flex items-center gap-1"
                     >
-                      <Palette size={12} className="text-green-400"/> Graphics
+                      <Palette size={12} className="text-green-400" /> Graphics
                     </div>
                     <div
                       id="web-design"
                       className="absolute bottom-20 right-1 rounded-3xl border border-white/20 bg-white/5 px-2 py-1.5 text-xs text-white opacity-50 flex items-center gap-1"
                     >
-                      <Globe size={12} className="text-green-400"/> Web Apps
+                      <Globe size={12} className="text-green-400" /> Web Apps
                     </div>
                     <div
                       id="branding"
                       className="absolute right-12 top-10 rounded-3xl border border-white/20 bg-white/5 px-2 py-1.5 text-xs text-white opacity-50 flex items-center gap-1"
                     >
-                      <Monitor size={12} className="text-green-400"/> Branding
+                      <Monitor size={12} className="text-green-400" /> Branding
                     </div>
 
                     <div id="pointer" className="absolute z-10">
@@ -125,7 +125,7 @@ export function Connect() {
                     <div className="flex flex-col items-center md:items-start">
                       <h3 className="mt-6 pb-1 font-bold text-white text-center md:text-left">
                         <span className="text-2xl md:text-3xl">
-                          Ready to elevate <br/>your digital presence?
+                          Ready to elevate <br />your digital presence?
                         </span>
                       </h3>
                     </div>
@@ -134,7 +134,9 @@ export function Connect() {
                     </p>
                     <div className="flex flex-wrap gap-2 justify-center md:justify-start">
                       <a
-                        href="#contact"
+                        href="https://wa.me/918017561073?text=I%20am%20interested%20in%20working%20with%20you"
+                        target="_blank"
+                        rel="noopener noreferrer"
                       >
                         <Button>Book a call</Button>
                       </a>
