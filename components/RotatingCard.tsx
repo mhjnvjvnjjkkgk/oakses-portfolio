@@ -171,7 +171,7 @@ const RotatingCard: React.FC<RotatingCardProps> = ({
 
             {/* Glow */}
             <motion.div
-                className="fixed inset-0 pointer-events-none z-[49] hidden md:block"
+                className="fixed inset-0 pointer-events-none z-[2] hidden md:block"
                 style={{ y: scrollAwayY, opacity: cardOpacity, display: shouldDisplay }}
             >
                 <motion.div
