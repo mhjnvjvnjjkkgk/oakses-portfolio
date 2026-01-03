@@ -98,8 +98,6 @@ function App() {
         </div>
         <WhatICanDo />
         <Skills />
-        <Skills />
-
 
         <ZoomParallax />
 

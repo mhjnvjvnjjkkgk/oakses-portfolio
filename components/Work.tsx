@@ -35,7 +35,7 @@ const projects: ProjectItem[] = [
   { id: 11, category: "Thumbnail Design", title: "Tech Review", image: "https://picsum.photos/1280/720?random=301" },
   { id: 12, category: "Thumbnail Design", title: "Vlog Daily", image: "https://picsum.photos/1280/720?random=302" },
   { id: 13, category: "Thumbnail Design", title: "Tutorial Series", image: "https://picsum.photos/1280/720?random=303" },
-  
+
   // Jersey Design
   { id: 14, category: "Jersey Design", title: "Team Liquid Clone", image: "https://picsum.photos/800/800?random=400" },
   { id: 15, category: "Jersey Design", title: "Cloud9 Alt", image: "https://picsum.photos/800/1000?random=401" },
@@ -57,33 +57,33 @@ const Work: React.FC = () => {
   }
 
   return (
-    <section 
-      className="py-20 md:py-32 px-4 md:px-20 bg-[#080808] relative z-20 min-h-screen flex flex-col"
+    <section
+      className="py-20 md:py-32 px-4 md:px-20 bg-transparent relative z-20 min-h-screen flex flex-col"
       onMouseMove={handleMouseMove}
     >
-       <ParallaxBackground />
+      <ParallaxBackground />
 
-       {/* Interactive Grid */}
-       <div className="absolute inset-0 pointer-events-none z-0">
+      {/* Interactive Grid */}
+      <div className="absolute inset-0 pointer-events-none z-0">
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:30px_30px]" />
         <motion.div
-            className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff15_1px,transparent_1px),linear-gradient(to_bottom,#ffffff15_1px,transparent_1px)] bg-[size:30px_30px]"
-            style={{
-                maskImage: useMotionTemplate`radial-gradient(300px circle at ${mouseX}px ${mouseY}px, black, transparent)`,
-                WebkitMaskImage: useMotionTemplate`radial-gradient(300px circle at ${mouseX}px ${mouseY}px, black, transparent)`
-            }}
+          className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff15_1px,transparent_1px),linear-gradient(to_bottom,#ffffff15_1px,transparent_1px)] bg-[size:30px_30px]"
+          style={{
+            maskImage: useMotionTemplate`radial-gradient(300px circle at ${mouseX}px ${mouseY}px, black, transparent)`,
+            WebkitMaskImage: useMotionTemplate`radial-gradient(300px circle at ${mouseX}px ${mouseY}px, black, transparent)`
+          }}
         />
       </div>
 
-       {/* Background Noise & Blob */}
-       <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none mix-blend-overlay"></div>
-       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-green-900/10 rounded-full blur-[150px] pointer-events-none" />
+      {/* Background Noise & Blob */}
+      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none mix-blend-overlay"></div>
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-green-900/10 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto w-full relative z-10">
         <ZoomSection className="mb-12 md:mb-16 text-center">
           <h2 className="text-xs md:text-sm font-bold tracking-[0.3em] text-green-500 uppercase mb-4">My Portfolio</h2>
           <div className="text-4xl md:text-5xl lg:text-7xl font-black text-white tracking-tight flex justify-center">
-             <InteractiveHeading text="Selected Works" />
+            <InteractiveHeading text="Selected Works" />
           </div>
         </ZoomSection>
 
@@ -95,9 +95,8 @@ const Work: React.FC = () => {
               onClick={() => setActiveTab(cat)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className={`relative px-4 py-2 md:px-6 md:py-3 rounded-full text-xs md:text-sm font-bold uppercase tracking-widest transition-colors duration-300 ${
-                activeTab === cat ? 'text-black' : 'text-gray-500 hover:text-white'
-              }`}
+              className={`relative px-4 py-2 md:px-6 md:py-3 rounded-full text-xs md:text-sm font-bold uppercase tracking-widest transition-colors duration-300 ${activeTab === cat ? 'text-black' : 'text-gray-500 hover:text-white'
+                }`}
             >
               <span className="relative z-10">{cat}</span>
               {activeTab === cat && (
@@ -124,23 +123,23 @@ const Work: React.FC = () => {
                 transition={{ duration: 0.4 }}
                 className="break-inside-avoid mb-3 md:mb-8"
               >
-                  <div className="relative w-full mb-2 md:mb-4">
-                    <TiltCard className="w-full rounded-xl overflow-hidden cursor-pointer bg-neutral-900 border border-transparent hover:border-white/20 group">
-                        <img 
-                          src={project.image} 
-                          alt={project.title} 
-                          className="w-full h-auto object-cover transition-all duration-700 ease-out group-hover:[transform:scale(1.1)_rotateX(7deg)] grayscale-[30%] group-hover:grayscale-0"
-                        />
-                    </TiltCard>
-                  </div>
-                  
-                  {/* Text Below Card */}
-                  <div className="text-center">
-                     <span className="text-green-400 text-[10px] md:text-xs font-mono uppercase tracking-widest mb-1 block">{project.category}</span>
-                     <h4 className="text-sm md:text-xl font-bold text-white flex justify-center leading-tight">
-                        {project.title}
-                     </h4>
-                  </div>
+                <div className="relative w-full mb-2 md:mb-4">
+                  <TiltCard className="w-full rounded-xl overflow-hidden cursor-pointer bg-neutral-900 border border-transparent hover:border-white/20 group">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-auto object-cover transition-all duration-700 ease-out group-hover:[transform:scale(1.1)_rotateX(7deg)] grayscale-[30%] group-hover:grayscale-0"
+                    />
+                  </TiltCard>
+                </div>
+
+                {/* Text Below Card */}
+                <div className="text-center">
+                  <span className="text-green-400 text-[10px] md:text-xs font-mono uppercase tracking-widest mb-1 block">{project.category}</span>
+                  <h4 className="text-sm md:text-xl font-bold text-white flex justify-center leading-tight">
+                    {project.title}
+                  </h4>
+                </div>
               </motion.div>
             ))}
           </AnimatePresence>
