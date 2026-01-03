@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+
+import React, { useState, useEffect } from 'react';
+import { motion, useScroll, useTransform, useSpring, useMotionValue } from 'framer-motion';
 
 interface RotatingCardProps {
     frontImage?: string;
@@ -13,6 +14,30 @@ const RotatingCard: React.FC<RotatingCardProps> = ({
     const [isFrontLoaded, setIsFrontLoaded] = useState(false);
     const [isBackLoaded, setIsBackLoaded] = useState(false);
     const { scrollY } = useScroll();
+
+    // ═══════════════════════════════════════════════════════════════
+    // MOUSE TRACKING FOR 3D TILT
+    // ═══════════════════════════════════════════════════════════════
+    const mouseX = useMotionValue(0);
+    const mouseY = useMotionValue(0);
+
+    const mouseRotateXRaw = useTransform(mouseY, [-500, 500], [10, -10]);
+    const mouseRotateYRaw = useTransform(mouseX, [-800, 800], [-10, 10]);
+
+    const mouseRotateX = useSpring(mouseRotateXRaw, { stiffness: 150, damping: 20 });
+    const mouseRotateY = useSpring(mouseRotateYRaw, { stiffness: 150, damping: 20 });
+
+    useEffect(() => {
+        const handleMouseMove = (e: MouseEvent) => {
+            // Track mouse relative to center of screen for global tilt
+            mouseX.set(e.clientX - window.innerWidth / 2);
+            mouseY.set(e.clientY - window.innerHeight / 2);
+        };
+
+        window.addEventListener('mousemove', handleMouseMove);
+        return () => window.removeEventListener('mousemove', handleMouseMove);
+    }, [mouseX, mouseY]);
+
 
     // ═══════════════════════════════════════════════════════════════
     // SPRING PHYSICS CONFIG
@@ -38,13 +63,15 @@ const RotatingCard: React.FC<RotatingCardProps> = ({
     const yPos = useSpring(yPosRaw, springConfig);
 
     // Rotation Y: 0 → 180 → 180 → 360
-    const rotateYRaw = useTransform(scrollY, [0, 1000, 1200, 2400], [0, 180, 180, 360]);
-    const rotateY = useSpring(rotateYRaw, springConfig);
+    // COMBINED with mouse tilt
+    const scrollRotateYRaw = useTransform(scrollY, [0, 1000, 1200, 2400], [0, 180, 180, 360]);
+    const scrollRotateY = useSpring(scrollRotateYRaw, springConfig);
 
-    // Tilt (rotateZ):
-    // Moving Left → tilt LEFT (-15°)
-    // At Left (dwell) → tilt LEFT (-15°)
-    // Moving Right → swings through RIGHT, ends tilted LEFT (-15°)
+    // We combine the scroll rotation and mouse rotation cleanly
+    const combinedRotateY = useTransform([scrollRotateY, mouseRotateY], ([s, m]) => s + m);
+
+
+    // Tilt (rotateZ): 
     const rotateZRaw = useTransform(scrollY, [0, 500, 1000, 1200, 1800, 2400], [0, -20, -15, -15, 20, -15]);
     const rotateZ = useSpring(rotateZRaw, springConfig);
 
@@ -69,7 +96,8 @@ const RotatingCard: React.FC<RotatingCardProps> = ({
                         top: useTransform(yPos, v => `${v}vh`),
                         translateX: '-50%',
                         translateY: '-50%',
-                        rotateY,
+                        rotateY: combinedRotateY, // Use combined rotation
+                        rotateX: mouseRotateX,    // Add mouse tilt X
                         rotateZ,
                         transformStyle: 'preserve-3d',
                         perspective: 1500,
