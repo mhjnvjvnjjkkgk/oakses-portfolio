@@ -8,7 +8,7 @@ interface RotatingCardProps {
 }
 
 const RotatingCard: React.FC<RotatingCardProps> = ({
-    frontImage = "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=600&fit=crop",
+    frontImage = "/samples/jersey/sir mockup.png",
     backImage = "https://images.unsplash.com/photo-1593062096033-9a26b09da705?w=400&h=600&fit=crop"
 }) => {
     const [isFrontLoaded, setIsFrontLoaded] = useState(false);

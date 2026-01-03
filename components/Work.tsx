@@ -18,35 +18,49 @@ const categories: Category[] = ["Logo Design", "Website Creation", "Thumbnail De
 
 const projects: ProjectItem[] = [
   // Logo Design
-  { id: 1, category: "Logo Design", title: "Apex Dynamics", image: "https://picsum.photos/800/800?random=100" },
-  { id: 2, category: "Logo Design", title: "Zenith Tech", image: "https://picsum.photos/800/1200?random=101" }, // Tall
-  { id: 3, category: "Logo Design", title: "Flux Energy", image: "https://picsum.photos/800/800?random=102" },
-  { id: 4, category: "Logo Design", title: "Nova Systems", image: "https://picsum.photos/1000/600?random=103" }, // Wide
-  { id: 5, category: "Logo Design", title: "Echo Audio", image: "https://picsum.photos/800/800?random=104" },
+  { id: 1, category: "Logo Design", title: "SI Esports Logo", image: "/samples/logo/si esports (4) (1).jpg" },
+  { id: 2, category: "Logo Design", title: "Gaming Logo", image: "/samples/logo/image-removebg-preview (22) (1).jpg" },
+  { id: 3, category: "Logo Design", title: "Esports Brand", image: "/samples/logo/images (1).png" },
 
   // Website Creation
-  { id: 6, category: "Website Creation", title: "Cyberfolio", image: "https://picsum.photos/1200/1000?random=200" },
-  { id: 7, category: "Website Creation", title: "E-Commerce Luxe", image: "https://picsum.photos/800/1400?random=201" }, // Very Tall
-  { id: 8, category: "Website Creation", title: "Startup Landing", image: "https://picsum.photos/800/800?random=202" },
-  { id: 9, category: "Website Creation", title: "Crypto Dashboard", image: "https://picsum.photos/1200/800?random=203" },
+  { id: 6, category: "Website Creation", title: "Gaming Background", image: "/samples/bgmi background (3).jpg" },
+  { id: 7, category: "Website Creation", title: "Project Showcase", image: "/samples/New Project (6).jpg" },
+  { id: 8, category: "Website Creation", title: "Design Sample", image: "/samples/FOR YO DADDY (13).jpg" },
+  { id: 9, category: "Website Creation", title: "Portfolio Piece", image: "/samples/FOR YO DADDY (14).jpg" },
 
   // Thumbnail Design
-  { id: 10, category: "Thumbnail Design", title: "Gaming Highlight", image: "https://picsum.photos/1280/720?random=300" },
-  { id: 11, category: "Thumbnail Design", title: "Tech Review", image: "https://picsum.photos/1280/720?random=301" },
-  { id: 12, category: "Thumbnail Design", title: "Vlog Daily", image: "https://picsum.photos/1280/720?random=302" },
-  { id: 13, category: "Thumbnail Design", title: "Tutorial Series", image: "https://picsum.photos/1280/720?random=303" },
+  { id: 10, category: "Thumbnail Design", title: "Gaming Thumbnail", image: "/samples/thumbnails/17 - dec 2020.jpg" },
+  { id: 11, category: "Thumbnail Design", title: "Content Thumbnail", image: "/samples/thumbnails/Thumbnail - 2.jpg" },
+  { id: 12, category: "Thumbnail Design", title: "Video Thumbnail 1", image: "/samples/thumbnails/thumbanil 1.jpg" },
+  { id: 13, category: "Thumbnail Design", title: "Video Thumbnail 2", image: "/samples/thumbnails/thumbnail (2).jpg" },
+  { id: 14, category: "Thumbnail Design", title: "Stream Thumbnail", image: "/samples/thumbnails/thumbnail 10 (6).jpg" },
+  { id: 15, category: "Thumbnail Design", title: "Content Thumbnail 3", image: "/samples/thumbnails/thumbnail 3 (1).jpg" },
+  { id: 16, category: "Thumbnail Design", title: "Video Thumbnail 5", image: "/samples/thumbnails/thumbnail 5 (4).jpg" },
+  { id: 17, category: "Thumbnail Design", title: "Gaming Thumbnail 6", image: "/samples/thumbnails/thumbnail 6 (9).jpg" },
 
   // Jersey Design
-  { id: 14, category: "Jersey Design", title: "Team Liquid Clone", image: "https://picsum.photos/800/800?random=400" },
-  { id: 15, category: "Jersey Design", title: "Cloud9 Alt", image: "https://picsum.photos/800/1000?random=401" },
-  { id: 16, category: "Jersey Design", title: "FaZe Concept", image: "https://picsum.photos/800/800?random=402" },
-  { id: 17, category: "Jersey Design", title: "Custom Esport", image: "https://picsum.photos/800/1000?random=403" },
+  { id: 18, category: "Jersey Design", title: "Arpan Front", image: "/samples/jersey/arpan front.jpeg" },
+  { id: 19, category: "Jersey Design", title: "Arpan Back", image: "/samples/jersey/arpan back.jpeg" },
+  { id: 20, category: "Jersey Design", title: "Bleeder Front", image: "/samples/jersey/bleeder front.jpeg" },
+  { id: 21, category: "Jersey Design", title: "Bleeder Back", image: "/samples/jersey/bleeder back.jpeg" },
+  { id: 22, category: "Jersey Design", title: "NVD Front", image: "/samples/jersey/nvd front.jpeg" },
+  { id: 23, category: "Jersey Design", title: "NVD Back", image: "/samples/jersey/nvd back.jpeg" },
+  { id: 24, category: "Jersey Design", title: "PXG Front", image: "/samples/jersey/pxg front.jpeg" },
+  { id: 25, category: "Jersey Design", title: "PXG Back", image: "/samples/jersey/pxg back.jpeg" },
+  { id: 26, category: "Jersey Design", title: "Custom Mockup", image: "/samples/jersey/sir mockup.png" },
+  { id: 27, category: "Jersey Design", title: "Tubu Front", image: "/samples/jersey/tubu front.jpeg" },
+  { id: 28, category: "Jersey Design", title: "Tubu Back", image: "/samples/jersey/tubu back.jpeg" },
 
   // Poster Design
-  { id: 18, category: "Poster Design", title: "Concert Event", image: "https://picsum.photos/800/1200?random=500" },
-  { id: 19, category: "Poster Design", title: "Movie Premier", image: "https://picsum.photos/800/1200?random=501" },
-  { id: 20, category: "Poster Design", title: "Festival Promo", image: "https://picsum.photos/800/1000?random=502" },
-  { id: 21, category: "Poster Design", title: "Product Launch", image: "https://picsum.photos/800/1200?random=503" },
+  { id: 29, category: "Poster Design", title: "Ravenclaw Poster", image: "/samples/poster/FOR RAVENCLAW (1).jpg" },
+  { id: 30, category: "Poster Design", title: "Event Poster", image: "/samples/poster/Poster (6).jpg" },
+  { id: 31, category: "Poster Design", title: "Vote Poster", image: "/samples/poster/VOTE for roniit poddar (8).jpg" },
+  { id: 32, category: "Poster Design", title: "Promotional Poster", image: "/samples/poster/another poster (3).jpg" },
+  { id: 33, category: "Poster Design", title: "Free Fire Poster", image: "/samples/poster/free_fire_poster-transformed (1).jpeg" },
+  { id: 34, category: "Poster Design", title: "Gandhi Jayanti", image: "/samples/poster/gandhi jayanti simple by shayak.jpg" },
+  { id: 35, category: "Poster Design", title: "Rabindra Jayanti", image: "/samples/poster/rabindra jayanti shayak das.jpg" },
+  { id: 36, category: "Poster Design", title: "Scrims Poster", image: "/samples/poster/scrims poster (1).jpg" },
+  { id: 37, category: "Poster Design", title: "Showdown Poster", image: "/samples/poster/shunday showdown test 2 (8).jpg" },
 ];
 
 const Work: React.FC = () => {
