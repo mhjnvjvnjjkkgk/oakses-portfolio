@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion, useMotionTemplate, useMotionValue } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, useMotionTemplate, useMotionValue, useSpring, AnimatePresence } from 'framer-motion';
 import { Check, Sparkles } from 'lucide-react';
 import { ZoomSection } from './ui/ZoomSection';
 import { ParallaxBackground } from './ui/ParallaxBackground';
@@ -13,7 +13,8 @@ const rates = [
     period: "per logo",
     description: "Professional logo design specially made for your niche.",
     features: ["2 Free Revisions", "High Quality Render", "Source Files", "Fast Delivery"],
-    color: "#4ade80"
+    color: "#4ade80",
+    previewImage: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=300&h=200&fit=crop"
   },
   {
     title: "Website Creation",
@@ -21,7 +22,8 @@ const rates = [
     period: "per website",
     description: "Beautifully animated, handcrafted websites for business or portfolio.",
     features: ["Handcrafted Code", "Full Source Code Provided", "Setup Instructions", "Animations Included"],
-    color: "#10b981"
+    color: "#10b981",
+    previewImage: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=300&h=200&fit=crop"
   },
   {
     title: "Jersey Design",
@@ -29,7 +31,8 @@ const rates = [
     period: "per design",
     description: "Custom jersey designs made ready for printing.",
     features: ["Print-Ready Files", "Multiple Name Variations", "Printing Available (₹400)", "Shipping Available (₹60)"],
-    color: "#2dd4bf"
+    color: "#2dd4bf",
+    previewImage: "https://images.unsplash.com/photo-1577212017184-80cc0da11274?w=300&h=200&fit=crop"
   },
   {
     title: "Thumbnail Design",
@@ -37,7 +40,8 @@ const rates = [
     period: "per thumbnail",
     description: "High-CTR thumbnails that look great for your specific genre.",
     features: ["Genre-Specific Style", "High Resolution", "Click-Optimized", "Quick Turnaround"],
-    color: "#a3e635"
+    color: "#a3e635",
+    previewImage: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=300&h=200&fit=crop"
   },
   {
     title: "Poster Design",
@@ -45,7 +49,8 @@ const rates = [
     period: "per poster",
     description: "Creative posters for events, promotions, and announcements.",
     features: ["Event-Focused", "Print & Digital Ready", "Eye-Catching Layouts", "Custom Graphics"],
-    color: "#f472b6"
+    color: "#f472b6",
+    previewImage: "https://images.unsplash.com/photo-1558485203-b5413009da02?w=300&h=200&fit=crop"
   },
   {
     title: "Brand Identity",
@@ -53,16 +58,19 @@ const rates = [
     period: "full package",
     description: "Complete brand kit with colors, fonts, and logos.",
     features: ["Full Brand Kit", "Color Palette & Fonts", "All Source Files", "Niche-Specific Design"],
-    color: "#818cf8"
+    color: "#818cf8",
+    previewImage: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=300&h=200&fit=crop"
   }
 ];
 
 interface CardProps {
   item: typeof rates[0];
   index: number;
+  onHover: (index: number) => void;
+  onLeave: () => void;
 }
 
-const Card: React.FC<CardProps> = ({ item, index }) => {
+const Card: React.FC<CardProps> = ({ item, index, onHover, onLeave }) => {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
@@ -76,6 +84,8 @@ const Card: React.FC<CardProps> = ({ item, index }) => {
     <ZoomSection index={index} delay={index * 0.1}>
       <motion.div
         onMouseMove={handleMouseMove}
+        onMouseEnter={() => onHover(index)}
+        onMouseLeave={onLeave}
         className="group relative h-full bg-white/5 border border-white/10 rounded-2xl p-8 overflow-hidden hover:border-white/20 transition-colors flex flex-col"
       >
         {/* Spotlight Effect */}
@@ -136,8 +146,55 @@ const Card: React.FC<CardProps> = ({ item, index }) => {
 };
 
 const Rates: React.FC = () => {
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+
+  // Mouse tracking for preview image
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const smoothX = useSpring(mouseX, { stiffness: 150, damping: 20 });
+  const smoothY = useSpring(mouseY, { stiffness: 150, damping: 20 });
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    mouseX.set(e.clientX);
+    mouseY.set(e.clientY);
+  };
+
   return (
-    <section className="py-32 px-6 md:px-20 bg-transparent relative z-20 overflow-hidden">
+    <section
+      className="py-32 px-6 md:px-20 bg-transparent relative z-20 overflow-hidden"
+      onMouseMove={handleMouseMove}
+    >
+      {/* Cursor Preview Image */}
+      <motion.div
+        className="fixed z-[100] pointer-events-none w-[200px] h-[140px] rounded-xl overflow-hidden shadow-2xl border-2 border-green-500/30 hidden md:block"
+        style={{
+          left: smoothX,
+          top: smoothY,
+          translateX: 20,
+          translateY: 20,
+        }}
+        animate={{
+          opacity: hoveredCard !== null ? 1 : 0,
+          scale: hoveredCard !== null ? 1 : 0.8,
+        }}
+        transition={{ duration: 0.2 }}
+      >
+        <AnimatePresence mode="popLayout">
+          {hoveredCard !== null && (
+            <motion.img
+              key={hoveredCard}
+              src={rates[hoveredCard].previewImage}
+              alt="Service Preview"
+              className="absolute inset-0 w-full h-full object-cover"
+              initial={{ y: "100%", opacity: 0 }}
+              animate={{ y: "0%", opacity: 1 }}
+              exit={{ y: "-100%", opacity: 0 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+            />
+          )}
+        </AnimatePresence>
+      </motion.div>
+
       <ParallaxBackground />
       {/* Animated Background blobs */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
@@ -161,7 +218,7 @@ const Rates: React.FC = () => {
           transition={{ duration: 20, repeat: Infinity, ease: "linear", delay: 2 }}
           className="absolute bottom-[10%] right-[10%] w-[600px] h-[600px] bg-emerald-900/20 blur-[150px] rounded-full"
         />
-        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 brightness-100 contrast-150 mix-blend-overlay"></div>
+
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -189,7 +246,13 @@ const Rates: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {rates.map((rate, index) => (
-            <Card key={index} item={rate} index={index} />
+            <Card
+              key={index}
+              item={rate}
+              index={index}
+              onHover={setHoveredCard}
+              onLeave={() => setHoveredCard(null)}
+            />
           ))}
         </div>
 
