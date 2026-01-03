@@ -101,13 +101,20 @@ const WhatICanDo: React.FC = () => {
                 }}
                 transition={{ duration: 0.2 }}
             >
-                {hoveredItem !== null && (
-                    <img
-                        src={services[hoveredItem].previewImage}
-                        alt="Service Preview"
-                        className="w-full h-full object-cover"
-                    />
-                )}
+                <AnimatePresence mode="popLayout">
+                    {hoveredItem !== null && (
+                        <motion.img
+                            key={hoveredItem}
+                            src={services[hoveredItem].previewImage}
+                            alt="Service Preview"
+                            className="absolute inset-0 w-full h-full object-cover"
+                            initial={{ y: "100%", opacity: 0 }}
+                            animate={{ y: "0%", opacity: 1 }}
+                            exit={{ y: "-100%", opacity: 0 }}
+                            transition={{ duration: 0.3, ease: "easeInOut" }}
+                        />
+                    )}
+                </AnimatePresence>
             </motion.div>
 
             {/* Background elements */}
