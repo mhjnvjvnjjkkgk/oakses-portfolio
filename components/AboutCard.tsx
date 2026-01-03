@@ -16,7 +16,7 @@ const AboutCard: React.FC<AboutCardProps> = ({
             <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true, margin: "-100px" }}
+                viewport={{ once: true, margin: "0px" }}
                 transition={{ duration: 0.5, delay: 0.2 }}
                 className="relative w-[240px] h-[320px] md:w-[280px] md:h-[380px] mx-auto"
                 style={{
