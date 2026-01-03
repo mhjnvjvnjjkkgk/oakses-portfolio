@@ -21,12 +21,20 @@ const projects: ProjectItem[] = [
   { id: 1, category: "Logo Design", title: "SI Esports Logo", image: "/samples/logo/si esports (4) (1).jpg" },
   { id: 2, category: "Logo Design", title: "Gaming Logo", image: "/samples/logo/image-removebg-preview (22) (1).jpg" },
   { id: 3, category: "Logo Design", title: "Esports Brand", image: "/samples/logo/images (1).png" },
+  { id: 4, category: "Logo Design", title: "Brisk Me Logo", image: "/samples/logo/brisk me (7).jpg" },
+  { id: 5, category: "Logo Design", title: "Elevez Main Logo", image: "/samples/logo/elevez main white logo (1).png" },
+  { id: 6, category: "Logo Design", title: "New Project Logo", image: "/samples/logo/New Project (19).jpg" },
 
   // Website Creation
-  { id: 6, category: "Website Creation", title: "Gaming Background", image: "/samples/bgmi background (3).jpg" },
-  { id: 7, category: "Website Creation", title: "Project Showcase", image: "/samples/New Project (6).jpg" },
-  { id: 8, category: "Website Creation", title: "Design Sample", image: "/samples/FOR YO DADDY (13).jpg" },
-  { id: 9, category: "Website Creation", title: "Portfolio Piece", image: "/samples/FOR YO DADDY (14).jpg" },
+  { id: 7, category: "Website Creation", title: "Gaming Background", image: "/samples/bgmi background (3).jpg" },
+  { id: 8, category: "Website Creation", title: "Project Showcase", image: "/samples/New Project (6).jpg" },
+  { id: 9, category: "Website Creation", title: "Design Sample", image: "/samples/FOR YO DADDY (13).jpg" },
+  { id: 10, category: "Website Creation", title: "Portfolio Piece", image: "/samples/FOR YO DADDY (14).jpg" },
+  { id: 11, category: "Website Creation", title: "Battle of Underdogs", image: "/samples/others/battle of underdogs thumbnail.png" },
+  { id: 12, category: "Website Creation", title: "Goku Series", image: "/samples/others/goku series.png" },
+  { id: 13, category: "Website Creation", title: "Tournament Schedule", image: "/samples/others/Schedule.png" },
+  { id: 14, category: "Website Creation", title: "Maha Sangram", image: "/samples/others/maha sangram (5).jpg" },
+  { id: 15, category: "Website Creation", title: "Poster Design 3", image: "/samples/others/poster 3 done.png" },
 
   // Thumbnail Design
   { id: 10, category: "Thumbnail Design", title: "Gaming Thumbnail", image: "/samples/thumbnails/17 - dec 2020.jpg" },
