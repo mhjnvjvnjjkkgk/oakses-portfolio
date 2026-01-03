@@ -141,7 +141,7 @@ export function Connect() {
                         <Button>Book a call</Button>
                       </a>
                       <a
-                        href="mailto:hello@oakses.design"
+                        href="mailto:shayakdas6.5.0@gmail.com"
                         className={cn(
                           buttonVariants({
                             variant: "outline",
