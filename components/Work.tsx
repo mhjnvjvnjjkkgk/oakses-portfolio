@@ -5,7 +5,7 @@ import { ZoomSection } from './ui/ZoomSection';
 import { ParallaxBackground } from './ui/ParallaxBackground';
 import { InteractiveHeading } from './ui/InteractiveHeading';
 
-type Category = "Logo Design" | "Website Creation" | "Thumbnail Design" | "Jersey Design";
+type Category = "Logo Design" | "Website Creation" | "Thumbnail Design" | "Jersey Design" | "Poster Design";
 
 interface ProjectItem {
   id: number;
@@ -14,7 +14,7 @@ interface ProjectItem {
   image: string;
 }
 
-const categories: Category[] = ["Logo Design", "Website Creation", "Thumbnail Design", "Jersey Design"];
+const categories: Category[] = ["Logo Design", "Website Creation", "Thumbnail Design", "Jersey Design", "Poster Design"];
 
 const projects: ProjectItem[] = [
   // Logo Design
@@ -41,6 +41,12 @@ const projects: ProjectItem[] = [
   { id: 15, category: "Jersey Design", title: "Cloud9 Alt", image: "https://picsum.photos/800/1000?random=401" },
   { id: 16, category: "Jersey Design", title: "FaZe Concept", image: "https://picsum.photos/800/800?random=402" },
   { id: 17, category: "Jersey Design", title: "Custom Esport", image: "https://picsum.photos/800/1000?random=403" },
+
+  // Poster Design
+  { id: 18, category: "Poster Design", title: "Concert Event", image: "https://picsum.photos/800/1200?random=500" },
+  { id: 19, category: "Poster Design", title: "Movie Premier", image: "https://picsum.photos/800/1200?random=501" },
+  { id: 20, category: "Poster Design", title: "Festival Promo", image: "https://picsum.photos/800/1000?random=502" },
+  { id: 21, category: "Poster Design", title: "Product Launch", image: "https://picsum.photos/800/1200?random=503" },
 ];
 
 const Work: React.FC = () => {
