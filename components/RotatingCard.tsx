@@ -88,7 +88,7 @@ const RotatingCard: React.FC<RotatingCardProps> = ({
         <>
             <motion.div
                 className="fixed inset-0 pointer-events-none z-[50] hidden md:block"
-                style={{ y: scrollAwayY, opacity: cardOpacity }}
+                style={{ y: scrollAwayY, opacity: cardOpacity, display: shouldDisplay }}
             >
                 <motion.div
                     className="absolute"
@@ -162,7 +162,7 @@ const RotatingCard: React.FC<RotatingCardProps> = ({
             {/* Glow */}
             <motion.div
                 className="fixed inset-0 pointer-events-none z-[49] hidden md:block"
-                style={{ y: scrollAwayY, opacity: cardOpacity }}
+                style={{ y: scrollAwayY, opacity: cardOpacity, display: shouldDisplay }}
             >
                 <motion.div
                     className="absolute w-[400px] h-[500px] rounded-full"
