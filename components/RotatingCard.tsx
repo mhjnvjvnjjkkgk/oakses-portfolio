@@ -68,7 +68,10 @@ const RotatingCard: React.FC<RotatingCardProps> = ({
     const scrollRotateY = useSpring(scrollRotateYRaw, springConfig);
 
     // We combine the scroll rotation and mouse rotation cleanly
-    const combinedRotateY = useTransform([scrollRotateY, mouseRotateY], ([s, m]) => s + m);
+    // Reduce mouse tilt during animation to prevent jarring cursor interactions
+    const mouseTiltMultiplier = useTransform(scrollY, [0, 2400, 2600], [0.3, 0.3, 1]);
+    const dampedMouseRotateY = useTransform([mouseRotateY, mouseTiltMultiplier], ([m, mult]) => (m as number) * (mult as number));
+    const combinedRotateY = useTransform([scrollRotateY, dampedMouseRotateY], ([s, m]) => (s as number) + (m as number));
 
 
     // Tilt (rotateZ): Tilt RIGHT when moving LEFT, tilt LEFT when moving RIGHT
@@ -94,7 +97,7 @@ const RotatingCard: React.FC<RotatingCardProps> = ({
     return (
         <>
             <motion.div
-                className="fixed inset-0 pointer-events-none z-[50] hidden md:block"
+                className="fixed inset-0 pointer-events-none z-[5] hidden md:block"
                 style={{ y: scrollAwayY, opacity: cardOpacity, display: shouldDisplay }}
             >
                 <motion.div
