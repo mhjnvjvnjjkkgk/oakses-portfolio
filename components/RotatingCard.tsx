@@ -21,11 +21,11 @@ const RotatingCard: React.FC<RotatingCardProps> = ({
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
 
-    const mouseRotateXRaw = useTransform(mouseY, [-500, 500], [10, -10]);
-    const mouseRotateYRaw = useTransform(mouseX, [-800, 800], [-10, 10]);
+    const mouseRotateXRaw = useTransform(mouseY, [-window.innerHeight / 2, window.innerHeight / 2], [25, -25]);
+    const mouseRotateYRaw = useTransform(mouseX, [-window.innerWidth / 2, window.innerWidth / 2], [-25, 25]);
 
-    const mouseRotateX = useSpring(mouseRotateXRaw, { stiffness: 150, damping: 20 });
-    const mouseRotateY = useSpring(mouseRotateYRaw, { stiffness: 150, damping: 20 });
+    const mouseRotateX = useSpring(mouseRotateXRaw, { stiffness: 100, damping: 20 });
+    const mouseRotateY = useSpring(mouseRotateYRaw, { stiffness: 100, damping: 20 });
 
     useEffect(() => {
         const handleMouseMove = (e: MouseEvent) => {
