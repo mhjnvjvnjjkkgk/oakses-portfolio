@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Hero from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
@@ -18,7 +18,22 @@ import RotatingCard from './components/RotatingCard';
 import WhatICanDo from './components/WhatICanDo';
 import { EtherealShadow } from './components/ui/ethereal-shadow';
 
+// Animated Noise GIF Overlay Component
+const NoiseOverlay: React.FC<{ opacity?: number }> = ({ opacity = 0.05 }) => (
+  <div
+    className="fixed inset-0 z-[5] pointer-events-none"
+    style={{
+      opacity: opacity,
+      backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+      backgroundRepeat: 'repeat',
+      backgroundSize: '150px 150px',
+      animation: 'noiseShift 0.08s steps(8) infinite',
+    }}
+  />
+);
+
 function App() {
+  const [noiseOpacity] = useState(0.06);
 
   useEffect(() => {
     document.documentElement.style.scrollBehavior = 'smooth';
@@ -30,14 +45,34 @@ function App() {
   return (
     <div className="min-h-screen text-white selection:bg-green-500 selection:text-white relative">
 
-      {/* Ethereal Shadow - FIXED BACKGROUND at z-0 */}
+      {/* Global keyframes for noise animation */}
+      <style>{`
+        @keyframes noiseShift {
+          0% { transform: translate(0, 0); }
+          10% { transform: translate(-1%, -1%); }
+          20% { transform: translate(1%, 0%); }
+          30% { transform: translate(-1%, 1%); }
+          40% { transform: translate(0%, -1%); }
+          50% { transform: translate(1%, 1%); }
+          60% { transform: translate(-1%, 0%); }
+          70% { transform: translate(0%, 1%); }
+          80% { transform: translate(1%, -1%); }
+          90% { transform: translate(-1%, 1%); }
+          100% { transform: translate(0, 0); }
+        }
+      `}</style>
+
+      {/* Layer 1: Ethereal Shadow - FIXED BACKGROUND at z-0 */}
       <div className="fixed inset-0 z-0">
         <EtherealShadow
-          color="rgba(10, 10, 10, 0.9)"
+          color="rgba(5, 5, 5, 0.95)"
           animation={{ scale: 100, speed: 40 }}
-          noise={{ opacity: 0.3, scale: 1 }}
+          noise={{ opacity: 0, scale: 1 }} // Disabled internal noise, using separate layer
         />
       </div>
+
+      {/* Layer 2: Animated Noise Overlay at z-5 (above shadow, below content) */}
+      <NoiseOverlay opacity={noiseOpacity} />
 
       {/* 3D Rotating Card that follows scroll */}
       <RotatingCard />
@@ -45,7 +80,7 @@ function App() {
       {/* Navigation */}
       <Navigation />
 
-      {/* Main content - on TOP of ethereal shadow */}
+      {/* Layer 3: Main content at z-10 (on TOP of everything) */}
       <main className="relative z-10">
         <Hero />
         <div id="about">
