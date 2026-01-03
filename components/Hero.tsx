@@ -58,6 +58,7 @@ const MobileHero: React.FC = () => {
           style={{
             fontFamily: "'Bebas Neue', sans-serif",
             color: '#f5f0e8',
+            textShadow: '0 0 30px rgba(245, 240, 232, 0.4), 0 0 60px rgba(245, 240, 232, 0.2)',
           }}
         >
           PORTFOLIO
@@ -194,6 +195,7 @@ const DesktopHero: React.FC = () => {
             style={{
               fontFamily: "'Bebas Neue', 'Inter', sans-serif",
               letterSpacing: '-0.02em',
+              textShadow: '0 0 30px rgba(245, 240, 232, 0.4), 0 0 60px rgba(245, 240, 232, 0.2)',
             }}
           >
             {text.split('').map((char, i) => (
