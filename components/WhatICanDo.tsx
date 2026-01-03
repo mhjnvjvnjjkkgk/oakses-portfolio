@@ -14,51 +14,75 @@ interface ServiceItem {
 const services: ServiceItem[] = [
     {
         id: "01",
-        title: "UI/UX DESIGN",
-        description: "Crafting intuitive digital experiences",
+        title: "LOGO DESIGN",
+        description: "Professional logo design specially made for your niche",
         details: [
-            "Wireframing and prototyping",
-            "User Interface design for web and mobile apps",
-            "Usability testing and user feedback analysis",
-            "Interaction design and micro-animations"
-        ],
-        previewImage: "/samples/thumbnails/Thumbnail - 2.jpg"
-    },
-    {
-        id: "02",
-        title: "GRAPHIC DESIGN",
-        description: "Visual storytelling through brand assets",
-        details: [
-            "Brand identity and logo design",
-            "Social media creatives and banners",
-            "Marketing materials (brochures, flyers)",
-            "Vector illustrations and iconography"
+            "₹300 per logo",
+            "2 free revisions included",
+            "High quality renders",
+            "All source files provided"
         ],
         previewImage: "/samples/logo/si esports (4) (1).jpg"
     },
     {
-        id: "03",
-        title: "WEB DESIGN",
-        description: "Functional and beautiful websites",
+        id: "02",
+        title: "WEBSITE CREATION",
+        description: "Beautifully animated, handcrafted websites for business or portfolio",
         details: [
-            "Responsive website design",
-            "Landing page optimization",
-            "Webflow / Framer development",
-            "Design systems and style guides"
+            "₹10,000 per website",
+            "Full source code provided with setup instructions",
+            "Optional maintenance: ₹1,000/month (hosting + 2 changes/week)",
+            "Custom animations and responsive design"
         ],
         previewImage: "/samples/others/Roadmap (7).jpg"
     },
     {
-        id: "04",
-        title: "BRANDING",
-        description: "Complete visual identity systems",
+        id: "03",
+        title: "JERSEY DESIGN",
+        description: "Beautiful jersey designs made ready for printing",
         details: [
-            "Visual identity strategy",
-            "Brand guidelines and voice",
-            "Logo suites and variations",
-            "Corporate stationery design"
+            "₹500-650 per design (4 jerseys with different names)",
+            "Printing available: ₹400 per jersey",
+            "Shipping available: ₹60 per 2 jerseys",
+            "Print-ready files delivered"
         ],
         previewImage: "/samples/jersey/sir mockup.png"
+    },
+    {
+        id: "04",
+        title: "THUMBNAIL DESIGN",
+        description: "High-CTR thumbnails that look great for your specific genre",
+        details: [
+            "₹200 per thumbnail",
+            "Genre-specific styling",
+            "Click-optimized designs",
+            "Quick turnaround time"
+        ],
+        previewImage: "/samples/thumbnails/Thumbnail - 2.jpg"
+    },
+    {
+        id: "05",
+        title: "POSTER DESIGN",
+        description: "Creative posters for events, promotions, and announcements",
+        details: [
+            "₹250 per poster",
+            "Event-focused designs",
+            "Print & digital ready",
+            "Custom graphics and layouts"
+        ],
+        previewImage: "/samples/poster/Poster (6).jpg"
+    },
+    {
+        id: "06",
+        title: "BRAND IDENTITY",
+        description: "Complete brand kit with colors, logos, and fonts",
+        details: [
+            "₹5,000 full package",
+            "Niche-specific design strategy",
+            "Color palette and typography guidelines",
+            "All source files included"
+        ],
+        previewImage: "/samples/logo/elevez main white logo (1).png"
     }
 ];
 
