@@ -18,22 +18,37 @@ import RotatingCard from './components/RotatingCard';
 import WhatICanDo from './components/WhatICanDo';
 import { EtherealShadow } from './components/ui/ethereal-shadow';
 
-// Animated Film Grain Noise Overlay
-const NoiseOverlay: React.FC<{ opacity?: number }> = ({ opacity = 0.25 }) => (
-  <div
-    className="fixed inset-0 z-[5] pointer-events-none"
-    style={{
-      opacity: opacity,
-      backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-      backgroundRepeat: 'repeat',
-      backgroundSize: '50px 50px',
-      animation: 'noiseShift 0.05s steps(10) infinite',
-    }}
-  />
+// Noise Overlay - inline animated noise texture
+const NoiseOverlay: React.FC<{ opacity?: number }> = ({ opacity = 0.08 }) => (
+  <>
+    <style>{`
+      @keyframes noiseAnim {
+        0%, 100% { background-position: 0 0; }
+        10% { background-position: -5% -5%; }
+        20% { background-position: -10% 5%; }
+        30% { background-position: 5% -10%; }
+        40% { background-position: -5% 15%; }
+        50% { background-position: -10% 5%; }
+        60% { background-position: 15% 0; }
+        70% { background-position: 0 10%; }
+        80% { background-position: -15% 0; }
+        90% { background-position: 10% 5%; }
+      }
+    `}</style>
+    <div
+      className="fixed inset-0 z-[5] pointer-events-none"
+      style={{
+        opacity: opacity,
+        backgroundImage: `url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwBAMAAAClLOS0AAAAElBMVEUAAAAAAAAAAAAAAAAAAAAAAADgKxmiAAAABnRSTlMCBggKDA7RkHoLAAAASklEQVQ4y2NgGAWjAAj4GRj4GRgEGBj4BRgY+AUYGPgZGPj5GRj4+RkY+PkZGPj5GRj4GRQYGBQUFBQYFBgYFBQUGBQYRsEoGDoAABkJAxyd4T3TAAAAAElFTkSuQmCC")`,
+        backgroundRepeat: 'repeat',
+        animation: 'noiseAnim 0.2s steps(10) infinite',
+      }}
+    />
+  </>
 );
 
 function App() {
-  const [noiseOpacity] = useState(0.25);
+  const [noiseOpacity] = useState(0.08);
 
   useEffect(() => {
     document.documentElement.style.scrollBehavior = 'smooth';
