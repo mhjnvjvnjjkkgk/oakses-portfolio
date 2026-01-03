@@ -18,37 +18,55 @@ import RotatingCard from './components/RotatingCard';
 import WhatICanDo from './components/WhatICanDo';
 import { EtherealShadow } from './components/ui/ethereal-shadow';
 
-// Noise Overlay - inline animated noise texture
-const NoiseOverlay: React.FC<{ opacity?: number }> = ({ opacity = 0.08 }) => (
+// Animated Noise Overlay - BASE LAYER with animation
+const NoiseOverlay: React.FC<{ opacity?: number }> = ({ opacity = 0.4 }) => (
   <>
     <style>{`
-      @keyframes noiseAnim {
-        0%, 100% { background-position: 0 0; }
-        10% { background-position: -5% -5%; }
-        20% { background-position: -10% 5%; }
-        30% { background-position: 5% -10%; }
-        40% { background-position: -5% 15%; }
-        50% { background-position: -10% 5%; }
-        60% { background-position: 15% 0; }
-        70% { background-position: 0 10%; }
-        80% { background-position: -15% 0; }
-        90% { background-position: 10% 5%; }
+      @keyframes noiseFlicker {
+        0% { transform: translate(0, 0); }
+        10% { transform: translate(-2%, -2%); }
+        20% { transform: translate(2%, 1%); }
+        30% { transform: translate(-1%, 2%); }
+        40% { transform: translate(1%, -2%); }
+        50% { transform: translate(-2%, 1%); }
+        60% { transform: translate(2%, -1%); }
+        70% { transform: translate(-1%, -2%); }
+        80% { transform: translate(1%, 2%); }
+        90% { transform: translate(-2%, -1%); }
+        100% { transform: translate(0, 0); }
       }
     `}</style>
     <div
-      className="fixed inset-0 z-[5] pointer-events-none"
       style={{
-        opacity: opacity,
-        backgroundImage: `url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwBAMAAAClLOS0AAAAElBMVEUAAAAAAAAAAAAAAAAAAAAAAADgKxmiAAAABnRSTlMCBggKDA7RkHoLAAAASklEQVQ4y2NgGAWjAAj4GRj4GRgEGBj4BRgY+AUYGPgZGPj5GRj4+RkY+PkZGPj5GRj4GRQYGBQUFBQYFBgYFBQUGBQYRsEoGDoAABkJAxyd4T3TAAAAAElFTkSuQmCC")`,
-        backgroundRepeat: 'repeat',
-        animation: 'noiseAnim 0.2s steps(10) infinite',
+        position: 'fixed',
+        inset: 0,
+        zIndex: 1,
+        pointerEvents: 'none',
+        backgroundColor: '#1a1a1a',
+        overflow: 'hidden',
       }}
-    />
+    >
+      <div
+        style={{
+          position: 'absolute',
+          inset: '-10%',
+          width: '120%',
+          height: '120%',
+          opacity: opacity,
+          background: `
+            repeating-radial-gradient(#000 0 0.0001%, #fff 0 0.0002%) 50% 0/2500px 2500px,
+            repeating-conic-gradient(#000 0 0.0001%, #fff 0 0.0002%) 60% 60%/2500px 2500px
+          `,
+          backgroundBlendMode: 'difference',
+          animation: 'noiseFlicker 0.15s steps(8) infinite',
+        }}
+      />
+    </div>
   </>
 );
 
 function App() {
-  const [noiseOpacity] = useState(0.08);
+  const [noiseOpacity] = useState(0.15);
 
   useEffect(() => {
     document.documentElement.style.scrollBehavior = 'smooth';
@@ -61,32 +79,9 @@ function App() {
     <div className="min-h-screen text-white selection:bg-green-500 selection:text-white relative">
 
       {/* Global keyframes for noise animation */}
-      <style>{`
-        @keyframes noiseShift {
-          0% { transform: translate(0, 0); }
-          10% { transform: translate(-1%, -1%); }
-          20% { transform: translate(1%, 0%); }
-          30% { transform: translate(-1%, 1%); }
-          40% { transform: translate(0%, -1%); }
-          50% { transform: translate(1%, 1%); }
-          60% { transform: translate(-1%, 0%); }
-          70% { transform: translate(0%, 1%); }
-          80% { transform: translate(1%, -1%); }
-          90% { transform: translate(-1%, 1%); }
-          100% { transform: translate(0, 0); }
-        }
-      `}</style>
 
-      {/* Layer 1: Ethereal Shadow - FIXED BACKGROUND at z-0 */}
-      <div className="fixed inset-0 z-0">
-        <EtherealShadow
-          color="rgba(5, 5, 5, 0.95)"
-          animation={{ scale: 100, speed: 40 }}
-          noise={{ opacity: 0, scale: 1 }} // Disabled internal noise, using separate layer
-        />
-      </div>
 
-      {/* Layer 2: Animated Noise Overlay at z-5 (above shadow, below content) */}
+      {/* Animated Noise - BASE LAYER */}
       <NoiseOverlay opacity={noiseOpacity} />
 
       {/* 3D Rotating Card that follows scroll */}
@@ -95,7 +90,7 @@ function App() {
       {/* Navigation */}
       <Navigation />
 
-      {/* Layer 3: Main content at z-10 (on TOP of everything) */}
+      {/* Layer 3: Main content at z-10 */}
       <main className="relative z-10">
         <Hero />
         <div id="about">
