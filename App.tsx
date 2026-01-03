@@ -10,7 +10,6 @@ import Rates from './components/Rates';
 import Contact from './components/Contact';
 import Navigation from './components/Navigation';
 
-import Testimonials from './components/Testimonials';
 import FAQ from './components/FAQ';
 import { Connect } from './components/Connect';
 import ZoomParallax from './components/ZoomParallax';
@@ -114,7 +113,7 @@ function App() {
         <div id="work">
           <Work />
         </div>
-        <Testimonials />
+
         <div id="rates">
           <Rates />
         </div>
