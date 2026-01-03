@@ -42,7 +42,7 @@ const RotatingCard: React.FC<RotatingCardProps> = ({
     // ═══════════════════════════════════════════════════════════════
     // SPRING PHYSICS CONFIG
     // ═══════════════════════════════════════════════════════════════
-    const springConfig = { stiffness: 80, damping: 20, mass: 1 };
+    const springConfig = { stiffness: 50, damping: 30, mass: 1 };
 
     // ═══════════════════════════════════════════════════════════════
     // SCROLL TRANSFORMS
