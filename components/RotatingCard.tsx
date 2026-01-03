@@ -42,7 +42,7 @@ const RotatingCard: React.FC<RotatingCardProps> = ({
     // ═══════════════════════════════════════════════════════════════
     // SPRING PHYSICS CONFIG
     // ═══════════════════════════════════════════════════════════════
-    const springConfig = { stiffness: 50, damping: 30, mass: 1 };
+    const springConfig = { stiffness: 40, damping: 35, mass: 1 };
 
     // ═══════════════════════════════════════════════════════════════
     // SCROLL TRANSFORMS
@@ -55,7 +55,7 @@ const RotatingCard: React.FC<RotatingCardProps> = ({
     // 2400+: Scroll away
 
     // X Position (vw): 50 → 25 → 25 → 65 (lands in right column, aligned with text)
-    const xPosRaw = useTransform(scrollY, [0, 1000, 1200, 2400], [40, 18, 18, 65]);
+    const xPosRaw = useTransform(scrollY, [0, 1000, 1200, 2400], [30, 10, 10, 65]);
     const xPos = useSpring(xPosRaw, springConfig);
 
     // Y Position (vh): 50 → 55 → 55 → 62 (lands aligned with Graphic Design - 2nd item)
