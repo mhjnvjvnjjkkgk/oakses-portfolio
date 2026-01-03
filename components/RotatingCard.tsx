@@ -78,6 +78,9 @@ const RotatingCard: React.FC<RotatingCardProps> = ({
     // Scroll-away offset after landing (NO spring - must be linear)
     const scrollAwayY = useTransform(scrollY, (v) => v > 2400 ? -(v - 2400) : 0);
 
+    // CRITICAL: Fade out the card completely when scrolling away to prevent invisible blocking
+    const cardOpacity = useTransform(scrollY, [2400, 2600], [1, 0]);
+
     // ═══════════════════════════════════════════════════════════════
     // RENDER
     // ═══════════════════════════════════════════════════════════════
@@ -85,7 +88,7 @@ const RotatingCard: React.FC<RotatingCardProps> = ({
         <>
             <motion.div
                 className="fixed inset-0 pointer-events-none z-[50] hidden md:block"
-                style={{ y: scrollAwayY }}
+                style={{ y: scrollAwayY, opacity: cardOpacity }}
             >
                 <motion.div
                     className="absolute"
@@ -159,7 +162,7 @@ const RotatingCard: React.FC<RotatingCardProps> = ({
             {/* Glow */}
             <motion.div
                 className="fixed inset-0 pointer-events-none z-[49] hidden md:block"
-                style={{ y: scrollAwayY }}
+                style={{ y: scrollAwayY, opacity: cardOpacity }}
             >
                 <motion.div
                     className="absolute w-[400px] h-[500px] rounded-full"
