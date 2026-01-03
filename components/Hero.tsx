@@ -30,14 +30,6 @@ const MobileHero: React.FC = () => {
   return (
     <section className="min-h-screen w-full relative flex flex-col items-center justify-center overflow-hidden bg-transparent px-6 py-20 md:hidden">
 
-      {/* Background glow */}
-      <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full pointer-events-none opacity-30"
-        style={{
-          background: 'radial-gradient(circle, rgba(34, 197, 94, 0.5) 0%, transparent 60%)',
-          filter: 'blur(60px)',
-        }}
-      />
 
       {/* Main Content */}
       <motion.div
@@ -155,14 +147,6 @@ const DesktopHero: React.FC = () => {
   return (
     <section className="min-h-screen w-full relative hidden md:flex items-center justify-center overflow-hidden bg-transparent">
 
-      {/* Background glow */}
-      <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full pointer-events-none opacity-20"
-        style={{
-          background: 'radial-gradient(circle, rgba(34, 197, 94, 0.4) 0%, transparent 60%)',
-          filter: 'blur(60px)',
-        }}
-      />
 
       {/* Main PORTFOLIO Text with Graphic Designer subtitle */}
       <motion.div
