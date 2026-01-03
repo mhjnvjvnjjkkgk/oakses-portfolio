@@ -105,7 +105,7 @@ const Work: React.FC = () => {
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project) => (
               <motion.div
-                layout
+                layout="position"
                 key={project.id}
                 initial={{ opacity: 0, scale: 0.9, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
