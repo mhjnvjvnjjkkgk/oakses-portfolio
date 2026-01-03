@@ -76,7 +76,7 @@ const Work: React.FC = () => {
       </div>
 
       {/* Background Noise & Blob */}
-      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 pointer-events-none mix-blend-overlay"></div>
+
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-green-900/10 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto w-full relative z-10">
