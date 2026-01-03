@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 
 interface RotatingCardProps {
@@ -10,6 +10,8 @@ const RotatingCard: React.FC<RotatingCardProps> = ({
     frontImage = "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=600&fit=crop",
     backImage = "https://images.unsplash.com/photo-1593062096033-9a26b09da705?w=400&h=600&fit=crop"
 }) => {
+    const [isFrontLoaded, setIsFrontLoaded] = useState(false);
+    const [isBackLoaded, setIsBackLoaded] = useState(false);
     const { scrollY } = useScroll();
 
     // ═══════════════════════════════════════════════════════════════
@@ -75,14 +77,19 @@ const RotatingCard: React.FC<RotatingCardProps> = ({
                 >
                     {/* FRONT FACE */}
                     <div
-                        className="absolute inset-0 rounded-2xl overflow-hidden"
+                        className="absolute inset-0 rounded-2xl overflow-hidden bg-[#1a1a1a]"
                         style={{
                             backfaceVisibility: 'hidden',
                             transform: 'translateZ(6px)',
                             boxShadow: '0 30px 60px -15px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.1)',
                         }}
                     >
-                        <img src={frontImage} alt="Front" className="w-full h-full object-cover" />
+                        <img
+                            src={frontImage}
+                            alt="Front"
+                            className={`w-full h-full object-cover transition-all duration-700 ease-out ${isFrontLoaded ? 'opacity-100 blur-0 scale-100' : 'opacity-0 blur-xl scale-110'}`}
+                            onLoad={() => setIsFrontLoaded(true)}
+                        />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                         <div className="absolute bottom-5 left-5">
                             <h3 className="text-3xl font-black" style={{ fontFamily: "'Bebas Neue', sans-serif", color: '#f5f0e8' }}>
@@ -98,14 +105,19 @@ const RotatingCard: React.FC<RotatingCardProps> = ({
 
                     {/* BACK FACE */}
                     <div
-                        className="absolute inset-0 rounded-2xl overflow-hidden"
+                        className="absolute inset-0 rounded-2xl overflow-hidden bg-[#1a1a1a]"
                         style={{
                             backfaceVisibility: 'hidden',
                             transform: 'rotateY(180deg) translateZ(6px)',
                             boxShadow: '0 30px 60px -15px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.1)',
                         }}
                     >
-                        <img src={backImage} alt="Workspace" className="w-full h-full object-cover" />
+                        <img
+                            src={backImage}
+                            alt="Workspace"
+                            className={`w-full h-full object-cover transition-all duration-700 ease-out ${isBackLoaded ? 'opacity-100 blur-0 scale-100' : 'opacity-0 blur-xl scale-110'}`}
+                            onLoad={() => setIsBackLoaded(true)}
+                        />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                         <div className="absolute bottom-5 left-5 right-5">
                             <p className="text-sm text-green-400 font-semibold uppercase tracking-wider">My Workspace</p>
