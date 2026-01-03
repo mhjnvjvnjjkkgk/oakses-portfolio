@@ -19,21 +19,21 @@ import WhatICanDo from './components/WhatICanDo';
 import { EtherealShadow } from './components/ui/ethereal-shadow';
 
 // Animated Noise GIF Overlay Component
-const NoiseOverlay: React.FC<{ opacity?: number }> = ({ opacity = 0.05 }) => (
+const NoiseOverlay: React.FC<{ opacity?: number }> = ({ opacity = 0.15 }) => (
   <div
     className="fixed inset-0 z-[5] pointer-events-none"
     style={{
       opacity: opacity,
-      backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+      backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
       backgroundRepeat: 'repeat',
-      backgroundSize: '150px 150px',
-      animation: 'noiseShift 0.08s steps(8) infinite',
+      backgroundSize: '100px 100px',
+      animation: 'noiseShift 0.1s steps(6) infinite',
     }}
   />
 );
 
 function App() {
-  const [noiseOpacity] = useState(0.06);
+  const [noiseOpacity] = useState(0.18);
 
   useEffect(() => {
     document.documentElement.style.scrollBehavior = 'smooth';
