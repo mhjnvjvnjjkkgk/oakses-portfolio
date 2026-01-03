@@ -49,13 +49,13 @@ const RotatingCard: React.FC<RotatingCardProps> = ({
     // ═══════════════════════════════════════════════════════════════
 
     // Waypoints (extended range so animation completes when WhatICanDo is visible):
-    // 0-1000: Center → Left (Hero to About)
-    // 1000-1200: Short dwell at Left (About)
-    // 1200-2400: Left → Right (About to WhatICanDo)
+    // 0-1000: Center → Far Left (Hero to About)
+    // 1000-1200: Short dwell at Far Left (About)
+    // 1200-2400: Far Left → Right (About to WhatICanDo)
     // 2400+: Scroll away
 
-    // X Position (vw): 50 → 25 → 25 → 65 (lands in right column, aligned with text)
-    const xPosRaw = useTransform(scrollY, [0, 1000, 1200, 2400], [30, 10, 10, 65]);
+    // X Position (vw): Keep start at 50 (center), move to 10 (far left), then to 65 (right)
+    const xPosRaw = useTransform(scrollY, [0, 1000, 1200, 2400], [50, 10, 10, 65]);
     const xPos = useSpring(xPosRaw, springConfig);
 
     // Y Position (vh): 50 → 55 → 55 → 62 (lands aligned with Graphic Design - 2nd item)
