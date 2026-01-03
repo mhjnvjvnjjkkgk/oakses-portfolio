@@ -109,19 +109,19 @@ const About: React.FC = () => {
           {/* Main Scroll Text */}
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-12">
             <ScrollText
-              text="I'm OAKSES – a multi-disciplinary designer with over 6 years of experience crafting visual identities that stand out."
+              text="I'm OAKSES – an extremely professional graphic designer with over 6 years of experience crafting visual identities that stand out."
             />
           </h2>
 
           <p className="text-xl md:text-2xl font-light leading-relaxed mb-8">
             <ScrollText
-              text="From Discord server branding to jersey designs, I've helped countless communities and businesses establish their visual presence."
+              text="I have been the official graphic designer for multiple 150K+ member Discord servers, creating high-quality designs tailored to specific needs."
             />
           </p>
 
           <p className="text-lg md:text-xl text-gray-400 font-light leading-relaxed mb-12">
             <ScrollText
-              text="I've worked as the official designer for multiple 150K+ member Discord servers, creating everything from logos and banners to complete brand identities."
+              text="We first plan, research, and discuss your needs, taking all factors into consideration to deliver over 140+ successful designs."
             />
           </p>
 
@@ -147,6 +147,14 @@ const About: React.FC = () => {
                 className="text-5xl md:text-6xl font-bold text-green-400"
               />
               <p className="text-gray-500 text-sm uppercase tracking-wider mt-2">Discord Members Served</p>
+            </div>
+            <div>
+              <AnimatedCounter
+                target={140}
+                suffix="+"
+                className="text-5xl md:text-6xl font-bold text-green-400"
+              />
+              <p className="text-gray-500 text-sm uppercase tracking-wider mt-2">Designs Completed</p>
             </div>
           </motion.div>
 

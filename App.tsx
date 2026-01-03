@@ -9,7 +9,7 @@ import Work from './components/Work';
 import Rates from './components/Rates';
 import Contact from './components/Contact';
 import Navigation from './components/Navigation';
-import BentoGrid from './components/BentoGrid';
+
 import Testimonials from './components/Testimonials';
 import FAQ from './components/FAQ';
 import { Connect } from './components/Connect';
@@ -98,7 +98,8 @@ function App() {
         </div>
         <WhatICanDo />
         <Skills />
-        <BentoGrid />
+        <Skills />
+
 
         <ZoomParallax />
 

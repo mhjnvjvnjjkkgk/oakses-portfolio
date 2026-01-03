@@ -9,35 +9,51 @@ import { ScrollRevealText } from './ui/ScrollRevealText';
 const rates = [
   {
     title: "Logo Design",
-    price: "$299",
-    period: "starting at",
-    description: "A timeless mark that defines your brand's essence.",
-    features: ["3 Unique Concepts", "Brand Guidelines", "Vector Source Files", "Social Media Kit"],
-    color: "#4ade80" // green-400 (bright green)
+    price: "₹300",
+    period: "per logo",
+    description: "Professional logo design specially made for your niche.",
+    features: ["2 Free Revisions", "High Quality Render", "Source Files", "Fast Delivery"],
+    color: "#4ade80"
   },
   {
     title: "Website Creation",
-    price: "$1,499",
-    period: "starting at",
-    description: "Immersive, high-performance digital experiences.",
-    features: ["Custom 3D Design", "Responsive Layout", "CMS Integration", "SEO Optimization"],
-    color: "#10b981" // emerald-500 (deep green)
-  },
-  {
-    title: "Thumbnail Design",
-    price: "$49",
-    period: "per design",
-    description: "High-CTR visuals designed to stop the scroll.",
-    features: ["Click-Optimized", "Photo Manipulation", "Source Files", "24h Turnaround"],
-    color: "#a3e635" // lime-400 (neon green)
+    price: "₹10,000",
+    period: "per website",
+    description: "Beautifully animated, handcrafted websites for business or portfolio.",
+    features: ["Handcrafted Code", "Full Source Code Provided", "Setup Instructions", "Animations Included"],
+    color: "#10b981"
   },
   {
     title: "Jersey Design",
-    price: "$199",
-    period: "per kit",
-    description: "Professional esports and sports apparel design.",
-    features: ["Sublimation Ready", "3D Mockup Render", "Print-Ready Files", "Pattern Creation"],
-    color: "#2dd4bf" // teal-400 (teal green)
+    price: "₹500 - ₹650",
+    period: "per design",
+    description: "Custom jersey designs made ready for printing.",
+    features: ["Print-Ready Files", "Multiple Name Variations", "Printing Available (₹400)", "Shipping Available (₹60)"],
+    color: "#2dd4bf"
+  },
+  {
+    title: "Thumbnail Design",
+    price: "₹200",
+    period: "per thumbnail",
+    description: "High-CTR thumbnails that look great for your specific genre.",
+    features: ["Genre-Specific Style", "High Resolution", "Click-Optimized", "Quick Turnaround"],
+    color: "#a3e635"
+  },
+  {
+    title: "Poster Design",
+    price: "₹250",
+    period: "per poster",
+    description: "Creative posters for events, promotions, and announcements.",
+    features: ["Event-Focused", "Print & Digital Ready", "Eye-Catching Layouts", "Custom Graphics"],
+    color: "#f472b6"
+  },
+  {
+    title: "Brand Identity",
+    price: "₹5,000",
+    period: "full package",
+    description: "Complete brand kit with colors, fonts, and logos.",
+    features: ["Full Brand Kit", "Color Palette & Fonts", "All Source Files", "Niche-Specific Design"],
+    color: "#818cf8"
   }
 ];
 
