@@ -34,24 +34,51 @@
       /* Firefox */
     }
 
-    /* Subtle Glow for Headings */
+    /* Subtle Glow for Headings - Default White Glow */
     h1,
     h2,
     h3,
     h4,
     h5,
     h6 {
-      text-shadow: 0 0 20px rgba(34, 197, 94, 0.3),
-        0 0 40px rgba(34, 197, 94, 0.15);
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.3),
+        0 0 40px rgba(255, 255, 255, 0.15);
     }
 
-    /* Glow for Bold Text */
+    /* Green Glow for Green Text */
+    .text-green-400,
+    .text-green-500,
+    .text-green-600,
+    h1.text-green-400,
+    h2.text-green-400,
+    h3.text-green-400,
+    h1.text-green-500,
+    h2.text-green-500,
+    h3.text-green-500 {
+      text-shadow: 0 0 20px rgba(34, 197, 94, 0.4),
+        0 0 40px rgba(34, 197, 94, 0.2);
+    }
+
+    /* Glow for Bold Text - Default White Glow */
     strong,
     b,
     .font-bold,
     .font-black {
-      text-shadow: 0 0 15px rgba(34, 197, 94, 0.25),
-        0 0 30px rgba(34, 197, 94, 0.1);
+      text-shadow: 0 0 15px rgba(255, 255, 255, 0.25),
+        0 0 30px rgba(255, 255, 255, 0.1);
+    }
+
+    /* Green Glow for Green Bold Text */
+    strong.text-green-400,
+    strong.text-green-500,
+    b.text-green-400,
+    b.text-green-500,
+    .font-bold.text-green-400,
+    .font-bold.text-green-500,
+    .font-black.text-green-400,
+    .font-black.text-green-500 {
+      text-shadow: 0 0 15px rgba(34, 197, 94, 0.35),
+        0 0 30px rgba(34, 197, 94, 0.15);
     }
   </style>
   <script type="importmap">

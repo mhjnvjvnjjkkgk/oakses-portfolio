@@ -81,6 +81,9 @@ const RotatingCard: React.FC<RotatingCardProps> = ({
     // CRITICAL: Fade out the card completely when scrolling away to prevent invisible blocking
     const cardOpacity = useTransform(scrollY, [2400, 2600], [1, 0]);
 
+    // CRITICAL: Completely remove from DOM when far past the animation
+    const shouldDisplay = useTransform(scrollY, (v) => v < 2700 ? 'block' : 'none');
+
     // ═══════════════════════════════════════════════════════════════
     // RENDER
     // ═══════════════════════════════════════════════════════════════
