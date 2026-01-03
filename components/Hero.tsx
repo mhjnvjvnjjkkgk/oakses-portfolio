@@ -141,23 +141,7 @@ const MobileHero: React.FC = () => {
         </motion.a>
       </motion.div>
 
-      {/* Bottom Brand Link */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-      >
-        <a
-          href="https://www.elevez.shop"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-xs tracking-widest uppercase"
-          style={{ color: '#22c55e' }}
-        >
-          Elevez Clothing →
-        </a>
-      </motion.div>
+
     </section>
   );
 };
@@ -334,15 +318,6 @@ const DesktopHero: React.FC = () => {
         transition={{ delay: 0.8 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-3"
       >
-        <a
-          href="https://www.elevez.shop"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-xs tracking-widest uppercase hover:opacity-70 transition-opacity"
-          style={{ color: '#22c55e' }}
-        >
-          Elevez Clothing →
-        </a>
         <ArrowDown size={14} className="text-gray-500 animate-bounce" />
       </motion.div>
 
