@@ -26,16 +26,10 @@ const projects: ProjectItem[] = [
   { id: 5, category: "Logo Design", title: "Elevez Main Logo", image: "/samples/logo/elevez main white logo (1).png" },
   { id: 6, category: "Logo Design", title: "New Project Logo", image: "/samples/logo/New Project (19).jpg" },
 
-  // Website Creation - WITH LINKS
-  { id: 7, category: "Website Creation", title: "Oakses Portfolio", image: "/samples/WEBSITES/oakses.png", link: "https://oakses-portfolio.vercel.app" },
-  { id: 8, category: "Website Creation", title: "Elevez Shop", image: "/samples/WEBSITES/elevez.shop.png", link: "https://elevez.shop" },
+  // Website Creation - ONLY 3 WEBSITES
+  { id: 7, category: "Website Creation", title: "Oakses Portfolio", image: "/samples/WEBSITES/oakses portfolio.png", link: "https://oakses-portfolio.vercel.app" },
+  { id: 8, category: "Website Creation", title: "Elevez Shop", image: "/samples/WEBSITES/elevez.shop.png", link: "ht tps://elevez.shop" },
   { id: 9, category: "Website Creation", title: "Elevez Store", image: "/samples/WEBSITES/elevez 2nd.png", link: "https://elevez-store-4hceqhup3-shayaks-projects-95c1d909.vercel.app" },
-  { id: 10, category: "Website Creation", title: "Gaming Background", image: "/samples/bgmi background (3).jpg" },
-  { id: 11, category: "Website Creation", title: "Project Showcase", image: "/samples/New Project (6).jpg" },
-  { id: 12, category: "Website Creation", title: "Design Sample", image: "/samples/FOR YO DADDY (13).jpg" },
-  { id: 13, category: "Website Creation", title: "Portfolio Piece", image: "/samples/FOR YO DADDY (14).jpg" },
-  { id: 14, category: "Website Creation", title: "Battle of Underdogs", image: "/samples/others/battle of underdogs thumbnail.png" },
-  { id: 15, category: "Website Creation", title: "Goku Series", image: "/samples/others/goku series.png" },
 
   // Thumbnail Design
   { id: 14, category: "Thumbnail Design", title: "Stream Thumbnail", image: "/samples/thumbnails/thumbnail 10 (6).jpg" },
