@@ -12,6 +12,7 @@ interface ProjectItem {
   category: Category;
   title: string;
   image: string;
+  link?: string; // Optional link for clickable projects
 }
 
 const categories: Category[] = ["Logo Design", "Website Creation", "Thumbnail Design", "Jersey Design", "Poster Design"];
@@ -25,22 +26,18 @@ const projects: ProjectItem[] = [
   { id: 5, category: "Logo Design", title: "Elevez Main Logo", image: "/samples/logo/elevez main white logo (1).png" },
   { id: 6, category: "Logo Design", title: "New Project Logo", image: "/samples/logo/New Project (19).jpg" },
 
-  // Website Creation
-  { id: 7, category: "Website Creation", title: "Gaming Background", image: "/samples/bgmi background (3).jpg" },
-  { id: 8, category: "Website Creation", title: "Project Showcase", image: "/samples/New Project (6).jpg" },
-  { id: 9, category: "Website Creation", title: "Design Sample", image: "/samples/FOR YO DADDY (13).jpg" },
-  { id: 10, category: "Website Creation", title: "Portfolio Piece", image: "/samples/FOR YO DADDY (14).jpg" },
-  { id: 11, category: "Website Creation", title: "Battle of Underdogs", image: "/samples/others/battle of underdogs thumbnail.png" },
-  { id: 12, category: "Website Creation", title: "Goku Series", image: "/samples/others/goku series.png" },
-  { id: 13, category: "Website Creation", title: "Tournament Schedule", image: "/samples/others/Schedule.png" },
-  { id: 14, category: "Website Creation", title: "Maha Sangram", image: "/samples/others/maha sangram (5).jpg" },
-  { id: 15, category: "Website Creation", title: "Poster Design 3", image: "/samples/others/poster 3 done.png" },
+  // Website Creation - WITH LINKS
+  { id: 7, category: "Website Creation", title: "Oakses Portfolio", image: "/samples/WEBSITES/oakses.png", link: "https://oakses-portfolio.vercel.app" },
+  { id: 8, category: "Website Creation", title: "Elevez Shop", image: "/samples/WEBSITES/elevez.shop.png", link: "https://elevez.shop" },
+  { id: 9, category: "Website Creation", title: "Elevez Store", image: "/samples/WEBSITES/elevez 2nd.png", link: "https://elevez-store-4hceqhup3-shayaks-projects-95c1d909.vercel.app" },
+  { id: 10, category: "Website Creation", title: "Gaming Background", image: "/samples/bgmi background (3).jpg" },
+  { id: 11, category: "Website Creation", title: "Project Showcase", image: "/samples/New Project (6).jpg" },
+  { id: 12, category: "Website Creation", title: "Design Sample", image: "/samples/FOR YO DADDY (13).jpg" },
+  { id: 13, category: "Website Creation", title: "Portfolio Piece", image: "/samples/FOR YO DADDY (14).jpg" },
+  { id: 14, category: "Website Creation", title: "Battle of Underdogs", image: "/samples/others/battle of underdogs thumbnail.png" },
+  { id: 15, category: "Website Creation", title: "Goku Series", image: "/samples/others/goku series.png" },
 
   // Thumbnail Design
-  { id: 10, category: "Thumbnail Design", title: "Gaming Thumbnail", image: "/samples/thumbnails/17 - dec 2020.jpg" },
-  { id: 11, category: "Thumbnail Design", title: "Content Thumbnail", image: "/samples/thumbnails/Thumbnail - 2.jpg" },
-  { id: 12, category: "Thumbnail Design", title: "Video Thumbnail 1", image: "/samples/thumbnails/thumbanil 1.jpg" },
-  { id: 13, category: "Thumbnail Design", title: "Video Thumbnail 2", image: "/samples/thumbnails/thumbnail (2).jpg" },
   { id: 14, category: "Thumbnail Design", title: "Stream Thumbnail", image: "/samples/thumbnails/thumbnail 10 (6).jpg" },
   { id: 15, category: "Thumbnail Design", title: "Content Thumbnail 3", image: "/samples/thumbnails/thumbnail 3 (1).jpg" },
   { id: 16, category: "Thumbnail Design", title: "Video Thumbnail 5", image: "/samples/thumbnails/thumbnail 5 (4).jpg" },
@@ -144,18 +141,41 @@ const Work: React.FC = () => {
                 initial={{ opacity: 0, scale: 0.9, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.2 } }}
-                transition={{ duration: 0.4 }}
-                className="break-inside-avoid mb-3 md:mb-8"
+                transition={{ duration: 0.3 }}
+                className="mb-3 md:mb-8 break-inside-avoid group"
               >
-                <div className="relative w-full mb-2 md:mb-4">
-                  <TiltCard className="w-full rounded-xl overflow-hidden cursor-pointer bg-neutral-900 border border-transparent hover:border-white/20 group">
+                {project.link ? (
+                  // Clickable item with link
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block relative overflow-hidden rounded-2xl hover:scale-[1.02] transition-transform duration-300"
+                  >
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-auto object-cover transition-all duration-700 ease-out group-hover:[transform:scale(1.1)_rotateX(7deg)] grayscale-[30%] group-hover:grayscale-0"
+                      className="w-full object-cover"
                     />
-                  </TiltCard>
-                </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <div className="absolute bottom-0 left-0 right-0 p-4">
+                        <h3 className="text-white text-lg font-bold mb-1">{project.title}</h3>
+                        <p className="text-green-400 text-sm">Click to visit →</p>
+                      </div>
+                    </div>
+                  </a>
+                ) : (
+                  // Non-clickable item
+                  <div className="relative w-full mb-2 md:mb-4">
+                    <TiltCard className="w-full rounded-xl overflow-hidden cursor-pointer bg-neutral-900 border border-transparent hover:border-white/20 group">
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-auto object-cover transition-all duration-700 ease-out group-hover:[transform:scale(1.1)_rotateX(7deg)] grayscale-[30%] group-hover:grayscale-0"
+                      />
+                    </TiltCard>
+                  </div>
+                )}
 
                 {/* Text Below Card */}
                 <div className="text-center">
