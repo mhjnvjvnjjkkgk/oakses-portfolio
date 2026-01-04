@@ -70,6 +70,7 @@ const projects: ProjectItem[] = [
 
 const Work: React.FC = () => {
   const [activeTab, setActiveTab] = useState<Category>("Logo Design");
+  const [lightboxImage, setLightboxImage] = useState<string | null>(null);`n  const [lightboxImage, setLightboxImage] = useState<string | null>(null);
   const filteredProjects = projects.filter(p => p.category === activeTab);
 
   const mouseX = useMotionValue(0);
@@ -186,3 +187,5 @@ const Work: React.FC = () => {
 };
 
 export default Work;
+
+
