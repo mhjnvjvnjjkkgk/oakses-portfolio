@@ -74,9 +74,9 @@ const RotatingCard: React.FC<RotatingCardProps> = ({
     const combinedRotateY = useTransform([scrollRotateY, dampedMouseRotateY], ([s, m]) => (s as number) + (m as number));
 
 
-    // Tilt (rotateZ): Tilt RIGHT when moving LEFT, tilt LEFT when moving RIGHT
-    // 0-1000: Moving left → tilt right (+15deg)
-    // 1000-1200: Dwell at left → maintain tilt
+    // Tilt (rotateZ): Tilt RIGHT when on LEFT, tilt LEFT when on RIGHT
+    // 0-1000: Moving left → tilt right (+15deg) ✓
+    // 1000-1200: Dwell at left → maintain right tilt (+15deg)
     // 1200-2400: Moving right → tilt left (-15deg)
     const rotateZRaw = useTransform(scrollY, [0, 1000, 1200, 2400], [0, 15, 15, -15]);
     const rotateZ = useSpring(rotateZRaw, springConfig);
@@ -96,7 +96,7 @@ const RotatingCard: React.FC<RotatingCardProps> = ({
     return (
         <>
             <motion.div
-                className="fixed inset-0 pointer-events-none z-[3] hidden md:block"
+                className="fixed inset-0 pointer-events-none z-[50] hidden md:block"
                 style={{ y: scrollAwayY, opacity: cardOpacity, display: shouldDisplay }}
             >
                 <motion.div
@@ -170,19 +170,23 @@ const RotatingCard: React.FC<RotatingCardProps> = ({
 
             {/* Glow */}
             <motion.div
-                className="fixed inset-0 pointer-events-none z-[2] hidden md:block"
+                className="fixed inset-0 pointer-events-none z-[49] hidden md:block"
                 style={{ y: scrollAwayY, opacity: cardOpacity, display: shouldDisplay }}
             >
                 <motion.div
-                    className="absolute w-[400px] h-[500px] rounded-full"
+                    className="absolute rounded-full" // Removed w-[400px] h-[500px] from className
                     style={{
-                        left: useTransform(xPos, v => `${v}vw`),
-                        top: useTransform(yPos, v => `${v}vh`),
+                        left: useTransform(xPos, v => `${v}vw`), // Reverted to useTransform for reactivity
+                        top: useTransform(yPos, v => `${v}vh`),   // Reverted to useTransform for reactivity
                         translateX: '-50%',
                         translateY: '-50%',
+                        width: '300px', // Reduced from 340px to cover less
+                        height: '420px', // Reduced from 460px
                         opacity: 0.12,
                         background: 'radial-gradient(circle, rgba(34,197,94,0.6) 0%, transparent 65%)',
                         filter: 'blur(60px)',
+                        transformStyle: 'preserve-3d', // Added
+                        perspective: 1500, // Added
                     }}
                 />
             </motion.div>
