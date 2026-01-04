@@ -54,8 +54,8 @@ const RotatingCard: React.FC<RotatingCardProps> = ({
     // 1200-2400: Far Left → Right (About to WhatICanDo)
     // 2400+: Scroll away
 
-    // X Position (vw): Keep start at 50 (center), move to 10 (far left), then to 65 (right)
-    const xPosRaw = useTransform(scrollY, [0, 1000, 1200, 2400], [50, 5, 5, 65]);
+    // X Position (vw): Keep start at 50 (center), move to 15 (left but not too far), then to 65 (right)
+    const xPosRaw = useTransform(scrollY, [0, 1000, 1200, 2400], [50, 15, 15, 65]);
     const xPos = useSpring(xPosRaw, springConfig);
 
     // Y Position (vh): 50 → 55 → 55 → 62 (lands aligned with Graphic Design - 2nd item)
