@@ -7,23 +7,23 @@ import { InteractiveHeading } from './ui/InteractiveHeading';
 const faqs = [
   {
     question: "What is your typical turnaround time?",
-    answer: "For branding projects, it usually takes 2-3 weeks. Web design and development can take 4-8 weeks depending on complexity. Rush delivery is available upon request."
+    answer: "Logo Design: 2 days | Thumbnail Design: 2 days | Poster Design: 2 days | Branding Kit: 1 week | Website Development: 2 weeks. Rush delivery available upon request for an additional fee."
+  },
+  {
+    question: "Do you provide source files?",
+    answer: "Yes! Source files are provided for all services except logo design. You'll receive all working files (PSD, AI, Figma, code, etc.) upon project completion."
   },
   {
     question: "Do you offer post-launch support?",
-    answer: "Absolutely. I provide 30 days of free support after launch to ensure everything runs smoothly. After that, I offer maintenance packages to keep your digital assets updated."
+    answer: "For websites, I provide 1 week of free post-launch support under the specific package. After the free period, I offer paid maintenance and support packages to keep your site running smoothly."
   },
   {
     question: "What is the payment structure?",
     answer: "I typically require a 50% deposit to secure your slot in my schedule, with the remaining 50% due upon project completion and before final file delivery."
   },
   {
-    question: "Do you provide source files?",
-    answer: "Yes, you will receive full ownership of all source files (AI, PSD, Figma) upon final payment. Your intellectual property is yours."
-  },
-  {
     question: "Can you work with my existing brand guidelines?",
-    answer: "Of course. I can adapt to your existing visual language or help you evolve it into something new while respecting your core identity."
+    answer: "Absolutely! I can adapt to your existing visual language or help you evolve it into something new while respecting your core brand identity."
   }
 ];
 
@@ -103,3 +103,4 @@ const FAQ: React.FC = () => {
 };
 
 export default FAQ;
+
