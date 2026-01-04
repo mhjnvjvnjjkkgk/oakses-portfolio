@@ -58,13 +58,13 @@ const GalleryItem: React.FC<GalleryItemProps> = ({ src, index, containerX }) => 
       style={{
         rotateY,
         z,
-        opacity: isMobile ? 1 : opacity, // Force opacity 1 on mobile per previous request
+        opacity: isMobile ? 1 : opacity,
         scale,
         y,
         perspective: 1000,
         transformStyle: "preserve-3d"
       }}
-      className="relative h-[50vh] w-[35vh] md:h-[65vh] md:w-[45vh] flex-shrink-0 perspective-1000 z-10"
+      className="relative w-[35vh] md:w-[45vh] flex-shrink-0 perspective-1000 z-10"
     >
       {/* Scroll Entrance Animation: Triggers when item enters viewport horizontally or vertically */}
       <motion.div
@@ -75,14 +75,14 @@ const GalleryItem: React.FC<GalleryItemProps> = ({ src, index, containerX }) => 
         className="w-full h-full"
       >
         <motion.div
-          className="w-full h-full overflow-hidden rounded-xl bg-black/20 border border-white/10 relative shadow-2xl group"
+          className="w-full overflow-hidden rounded-xl bg-transparent border border-white/10 relative shadow-2xl group"
           whileHover={{ scale: 1.05, borderColor: "rgba(34, 197, 94, 0.5)" }}
           transition={{ duration: 0.4 }}
         >
           <img
             src={src}
             alt={`Gallery ${index} `}
-            className="h-full w-full object-contain grayscale-[50%] group-hover:grayscale-0 transition-all duration-700"
+            className="w-full h-auto object-cover grayscale-[50%] group-hover:grayscale-0 transition-all duration-700"
           />
 
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
