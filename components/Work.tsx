@@ -70,7 +70,7 @@ const projects: ProjectItem[] = [
 
 const Work: React.FC = () => {
   const [activeTab, setActiveTab] = useState<Category>("Logo Design");
-  const [lightboxImage, setLightboxImage] = useState<string | null>(null);`n  const [lightboxImage, setLightboxImage] = useState<string | null>(null);
+  const [lightboxImage, setLightboxImage] = useState<string | null>(null); `n  const [lightboxImage, setLightboxImage] = useState<string | null>(null);
   const filteredProjects = projects.filter(p => p.category === activeTab);
 
   const mouseX = useMotionValue(0);
@@ -102,14 +102,14 @@ const Work: React.FC = () => {
         </ZoomSection>
 
         {/* Filters */}
-        <ZoomSection className="flex flex-wrap justify-center gap-3 md:gap-4 mb-12 md:mb-16" delay={0.2}>
+        <ZoomSection className="flex flex-wrap gap-3 md:gap-4 justify-center mb-10 md:mb-16" delay={0.2}>
           {categories.map((cat) => (
             <motion.button
               key={cat}
               onClick={() => setActiveTab(cat)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className={`relative px-4 py-2 md:px-6 md:py-3 rounded-full text-xs md:text-sm font-bold uppercase tracking-widest transition-colors duration-300 ${activeTab === cat ? 'bg-green-500 text-black' : 'bg-white/5 text-gray-400 hover:text-white'}`}
+              className={`relative px - 4 py - 2 md: px - 6 md: py - 3 rounded - full text - xs md: text - sm font - bold uppercase tracking - widest transition - colors duration - 300 ${ activeTab === cat ? 'bg-green-500 text-black' : 'bg-white/5 text-gray-400 hover:text-white' } `}
             >
             >
               <span className="relative z-10">{cat}</span>
