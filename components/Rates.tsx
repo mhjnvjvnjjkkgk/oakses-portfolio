@@ -23,7 +23,7 @@ const rates = [
     description: "Beautifully animated, handcrafted websites for business or portfolio.",
     features: ["Handcrafted Code", "Full Source Code Provided", "Setup Instructions", "Animations Included"],
     color: "#10b981",
-    previewImage: "/samples/others/new point table (9).jpg"
+    previewImage: "/samples/WEBSITES/elevez.shop.png"
   },
   {
     title: "Jersey Design",
@@ -151,8 +151,8 @@ const Rates: React.FC = () => {
   // Mouse tracking for preview image
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
-  const smoothX = useSpring(mouseX, { stiffness: 400, damping: 30 });
-  const smoothY = useSpring(mouseY, { stiffness: 400, damping: 30 });
+  const smoothX = useSpring(mouseX, { stiffness: 200, damping: 25 });
+  const smoothY = useSpring(mouseY, { stiffness: 200, damping: 25 });
 
   const handleMouseMove = (e: React.MouseEvent) => {
     mouseX.set(e.clientX);
@@ -268,6 +268,8 @@ const Rates: React.FC = () => {
 }
 
 export default Rates;
+
+
 
 
 

@@ -93,8 +93,8 @@ const WhatICanDo: React.FC = () => {
     // Mouse tracking for preview image
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
-    const smoothX = useSpring(mouseX, { stiffness: 400, damping: 30 });
-    const smoothY = useSpring(mouseY, { stiffness: 400, damping: 30 });
+    const smoothX = useSpring(mouseX, { stiffness: 200, damping: 25 });
+    const smoothY = useSpring(mouseY, { stiffness: 200, damping: 25 });
 
     const handleMouseMove = (e: React.MouseEvent) => {
         mouseX.set(e.clientX);
@@ -251,6 +251,7 @@ const WhatICanDo: React.FC = () => {
 };
 
 export default WhatICanDo;
+
 
 
 
