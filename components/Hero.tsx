@@ -75,7 +75,7 @@ const MobileHero: React.FC = () => {
           }}
         >
           <img
-            src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=600&fit=crop"
+            src="/samples/for card/card front..jpeg"
             alt="Profile"
             className="w-full h-full object-cover"
           />
@@ -337,3 +337,4 @@ const Hero: React.FC = () => {
 };
 
 export default Hero;
+
