@@ -75,14 +75,14 @@ const GalleryItem: React.FC<GalleryItemProps> = ({ src, index, containerX }) => 
         className="w-full h-full"
       >
         <motion.div
-          className="w-full h-full overflow-hidden rounded-xl bg-gray-900 border border-white/10 relative shadow-2xl group"
+          className="w-full h-full overflow-hidden rounded-xl bg-black/20 border border-white/10 relative shadow-2xl group"
           whileHover={{ scale: 1.05, borderColor: "rgba(34, 197, 94, 0.5)" }}
           transition={{ duration: 0.4 }}
         >
           <img
             src={src}
             alt={`Gallery ${index} `}
-            className="h-full w-full object-cover grayscale-[50%] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110"
+            className="h-full w-full object-contain grayscale-[50%] group-hover:grayscale-0 transition-all duration-700"
           />
 
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-8">
