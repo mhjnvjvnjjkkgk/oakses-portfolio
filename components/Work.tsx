@@ -109,8 +109,8 @@ const Work: React.FC = () => {
               onClick={() => setActiveTab(cat)}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className={`relative px-4 py-2 md:px-6 md:py-3 rounded-full text-xs md:text-sm font-bold uppercase tracking-widest transition-colors duration-300 ${activeTab === cat ? 'text-black' : 'text-gray-500 hover:text-white'
-                }`}
+              className={`relative px-4 py-2 md:px-6 md:py-3 rounded-full text-xs md:text-sm font-bold uppercase tracking-widest transition-colors duration-300 ${activeTab === cat ? 'bg-green-500 text-black' : 'bg-white/5 text-gray-400 hover:text-white'}`}
+            >
             >
               <span className="relative z-10">{cat}</span>
               {activeTab === cat && (
