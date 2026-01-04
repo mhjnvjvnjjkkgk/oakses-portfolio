@@ -270,3 +270,4 @@ const Rates: React.FC = () => {
 export default Rates;
 
 
+
