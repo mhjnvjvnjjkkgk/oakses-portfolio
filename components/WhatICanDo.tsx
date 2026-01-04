@@ -34,7 +34,7 @@ const services: ServiceItem[] = [
             "Optional maintenance: ₹1,000/month (hosting + 2 changes/week)",
             "Custom animations and responsive design"
         ],
-        previewImage: "/samples/others/Roadmap (7).jpg"
+        previewImage: "/samples/WEBSITES/elevez.shop.png" // Website UI instead of roadmap
     },
     {
         id: "03",
@@ -46,7 +46,7 @@ const services: ServiceItem[] = [
             "Shipping available: ₹60 per 2 jerseys",
             "Print-ready files delivered"
         ],
-        previewImage: "/samples/jersey/sir mockup.png"
+        previewImage: "/samples/jersey/arpan front.jpeg" // Jersey design
     },
     {
         id: "04",
@@ -58,7 +58,7 @@ const services: ServiceItem[] = [
             "Click-optimized designs",
             "Quick turnaround time"
         ],
-        previewImage: "/samples/thumbnails/Thumbnail - 2.jpg"
+        previewImage: "/samples/thumbnails/thumbanil 1.jpg" // Better thumbnail example
     },
     {
         id: "05",
