@@ -50,7 +50,7 @@ const Services: React.FC = () => {
   const mouseY = useMotionValue(0);
 
   // Smooth spring physics for the cursor image
-  const springConfig = { damping: 15, stiffness: 1000, mass: 0.5 };
+  const springConfig = { damping: 30, stiffness: 400, mass: 0.5 };
   const smoothX = useSpring(mouseX, springConfig);
   const smoothY = useSpring(mouseY, springConfig);
 
@@ -152,4 +152,5 @@ const Services: React.FC = () => {
 };
 
 export default Services;
+
 
