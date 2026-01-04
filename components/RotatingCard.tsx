@@ -80,7 +80,6 @@ const RotatingCard: React.FC<RotatingCardProps> = ({
     // 1200-2400: Moving right → tilt left (-15deg)
     const rotateZRaw = useTransform(scrollY, [0, 1000, 1200, 2400], [0, 15, 15, -15]);
     const rotateZ = useSpring(rotateZRaw, springConfig);
-    const rotateZ = useSpring(rotateZRaw, springConfig);
 
     // Scroll-away offset after landing (NO spring - must be linear)
     const scrollAwayY = useTransform(scrollY, (v) => v > 2400 ? -(v - 2400) : 0);
