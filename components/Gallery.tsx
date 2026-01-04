@@ -87,7 +87,7 @@ const GalleryItem: React.FC<GalleryItemProps> = ({ src, index, containerX }) => 
             <img
               src={src}
               alt={`Gallery ${index} `}
-              className="h-full w-full object-cover grayscale-[50%] group-hover:grayscale-0 transition-all duration-700"
+              className="h-full w-full object-contain grayscale-[50%] group-hover:grayscale-0 transition-all duration-700"
             />
           </motion.div>
 
@@ -98,7 +98,7 @@ const GalleryItem: React.FC<GalleryItemProps> = ({ src, index, containerX }) => 
               className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300"
             >
               <span className="text-green-400 font-mono text-xs mb-2 tracking-widest block">PROJECT 0{index + 1}</span>
-              <h3 className="text-3xl font-bold text-white leading-none">Visual Art</h3>
+              <h3 className="text-3xl font-bold text-white leading-none">{src.split('/').pop()?.replace(/\.(png|jpg|jpeg)$/i, '') || 'Visual Art'}</h3>
             </motion.div>
           </div>
         </motion.div>
