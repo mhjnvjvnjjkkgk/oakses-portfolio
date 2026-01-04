@@ -59,7 +59,7 @@ const GalleryItem: React.FC<GalleryItemProps> = ({ src, index, containerX }) => 
         rotateY,
         z,
         opacity: isMobile ? 1 : opacity,
-        scale,
+        scale: isMobile ? 1 : scale,
         y,
         perspective: 1000,
         transformStyle: "preserve-3d"
@@ -171,4 +171,5 @@ const Gallery: React.FC = () => {
 };
 
 export default Gallery;
+
 
