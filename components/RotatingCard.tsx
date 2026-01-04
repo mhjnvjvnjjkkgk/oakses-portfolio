@@ -75,10 +75,10 @@ const RotatingCard: React.FC<RotatingCardProps> = ({
 
 
     // Tilt (rotateZ): Tilt RIGHT when on LEFT, tilt LEFT when on RIGHT
-    // 0-1000: Moving left → tilt right (+15deg) ✓
-    // 1000-1200: Dwell at left → maintain right tilt (+15deg)
-    // 1200-2400: Moving right → tilt left (-15deg)
-    const rotateZRaw = useTransform(scrollY, [0, 1000, 1200, 2400], [0, 15, 15, -15]);
+    // 0-1000: Moving left → tilt right (-15deg for clockwise rotation)
+    // 1000-1200: Dwell at left → maintain right tilt (-15deg)
+    // 1200-2400: Moving right → tilt left (+15deg for counter-clockwise)
+    const rotateZRaw = useTransform(scrollY, [0, 1000, 1200, 2400], [0, -15, -15, 15]);
     const rotateZ = useSpring(rotateZRaw, springConfig);
 
     // Scroll-away offset after landing (NO spring - must be linear)

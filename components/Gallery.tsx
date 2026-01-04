@@ -2,15 +2,15 @@ import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, useSpring, MotionValue } from 'framer-motion';
 
 const images = [
-  "/samples/GALLERY/FOR YO DADDY.png",
-  "/samples/GALLERY/another poster (3).jpg",
-  "/samples/GALLERY/battle of underdogs thumbnail.png",
-  "/samples/GALLERY/goku series.png",
-  "/samples/GALLERY/new point table (9).jpg",
-  "/samples/GALLERY/nvd back.jpeg",
-  "/samples/GALLERY/nvd front.jpeg",
-  "/samples/GALLERY/shunday showdown test 2 (8).jpg",
-  "/samples/GALLERY/slot list 2 (2).jpg",
+  "/samples/gallery/FOR YO DADDY.png",
+  "/samples/gallery/another poster (3).jpg",
+  "/samples/gallery/battle of underdogs thumbnail.png",
+  "/samples/gallery/goku series.png",
+  "/samples/gallery/new point table (9).jpg",
+  "/samples/gallery/nvd back.jpeg",
+  "/samples/gallery/nvd front.jpeg",
+  "/samples/gallery/shunday showdown test 2 (8).jpg",
+  "/samples/gallery/slot list 2 (2).jpg",
 ];
 
 interface GalleryItemProps {
@@ -86,7 +86,7 @@ const GalleryItem: React.FC<GalleryItemProps> = ({ src, index, containerX }) => 
           >
             <img
               src={src}
-              alt={`Gallery ${ index } `}
+              alt={`Gallery ${index} `}
               className="h-full w-full object-cover grayscale-[50%] group-hover:grayscale-0 transition-all duration-700"
             />
           </motion.div>
