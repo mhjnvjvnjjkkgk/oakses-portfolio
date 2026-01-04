@@ -1,14 +1,17 @@
+```typescript
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, useSpring, MotionValue } from 'framer-motion';
 
 const images = [
-  "https://picsum.photos/600/800?random=1",
-  "https://picsum.photos/600/800?random=2",
-  "https://picsum.photos/600/800?random=3",
-  "https://picsum.photos/600/800?random=4",
-  "https://picsum.photos/600/800?random=5",
-  "https://picsum.photos/600/800?random=6",
-  "https://picsum.photos/600/800?random=7",
+  "/samples/GALLERY/FOR YO DADDY.png",
+  "/samples/GALLERY/another poster (3).jpg",
+  "/samples/GALLERY/battle of underdogs thumbnail.png",
+  "/samples/GALLERY/goku series.png",
+  "/samples/GALLERY/new point table (9).jpg",
+  "/samples/GALLERY/nvd back.jpeg",
+  "/samples/GALLERY/nvd front.jpeg",
+  "/samples/GALLERY/shunday showdown test 2 (8).jpg",
+  "/samples/GALLERY/slot list 2 (2).jpg",
 ];
 
 interface GalleryItemProps {
@@ -84,7 +87,7 @@ const GalleryItem: React.FC<GalleryItemProps> = ({ src, index, containerX }) => 
           >
             <img
               src={src}
-              alt={`Gallery ${index}`}
+              alt={`Gallery ${ index } `}
               className="h-full w-full object-cover grayscale-[50%] group-hover:grayscale-0 transition-all duration-700"
             />
           </motion.div>
