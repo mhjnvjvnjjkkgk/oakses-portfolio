@@ -96,9 +96,7 @@ const Work: React.FC = () => {
 
       <ParallaxBackground />
 
-      {/* Background Noise & Blob */}
-
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-green-900/10 rounded-full blur-[150px] pointer-events-none" />
+      {/* Background Noise & Blob - GLOW REMOVED */}
 
       <div className="max-w-7xl mx-auto w-full relative z-10">
         <ZoomSection className="mb-12 md:mb-16 text-center">
