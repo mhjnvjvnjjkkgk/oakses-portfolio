@@ -3,14 +3,14 @@ import { motion, useScroll, useTransform, useSpring, MotionValue } from 'framer-
 
 const images = [
   "/samples/gallery/FOR YO DADDY.png",
-  "/samples/gallery/another poster (3).jpg",
+  "/samples/gallery/poster.jpg",
   "/samples/gallery/battle of underdogs thumbnail.png",
   "/samples/gallery/goku series.png",
-  "/samples/gallery/new point table (9).jpg",
+  "/samples/gallery/new point table.jpg",
   "/samples/gallery/nvd back.jpeg",
   "/samples/gallery/nvd front.jpeg",
-  "/samples/gallery/shunday showdown test 2 (8).jpg",
-  "/samples/gallery/slot list 2 (2).jpg",
+  "/samples/gallery/shunday showdown.jpg",
+  "/samples/gallery/slot list.jpg",
 ];
 
 interface GalleryItemProps {

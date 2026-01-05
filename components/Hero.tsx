@@ -307,19 +307,7 @@ const DesktopHero: React.FC = () => {
         <ArrowDown size={14} className="text-gray-500 animate-bounce" />
       </motion.div>
 
-      {/* Nav */}
-      <div className="absolute top-6 right-12 z-30 flex gap-6">
-        {['Home', 'About', 'Contact'].map((item) => (
-          <a
-            key={item}
-            href={`#${item.toLowerCase()}`}
-            className="text-xs uppercase tracking-widest hover:opacity-60 transition-opacity"
-            style={{ color: '#f5f0e8' }}
-          >
-            {item}
-          </a>
-        ))}
-      </div>
+
     </section>
   );
 };
