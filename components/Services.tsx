@@ -8,37 +8,37 @@ const services = [
     icon: <Palette className="w-8 h-8" />,
     title: "Graphic Design",
     description: "Creating stunning visual content, brand identities, and marketing materials that captivate your audience.",
-    image: "https://images.unsplash.com/photo-1626785774583-b756fe1991eb?q=80&w=2070&auto=format&fit=crop"
+    image: "/samples/gallery/FOR YO DADDY.png"
   },
   {
     icon: <Monitor className="w-8 h-8" />,
     title: "UI/UX Design",
     description: "Designing intuitive and beautiful digital interfaces for websites, apps, and Discord servers.",
-    image: "https://images.unsplash.com/photo-1586717791821-3f44a5638d28?q=80&w=2070&auto=format&fit=crop"
+    image: "/samples/WEBSITES/elevez.shop.png"
   },
   {
     icon: <Shirt className="w-8 h-8" />,
     title: "Jersey Design",
     description: "Custom jersey and sportswear designs for esports teams, gaming communities, and sports organizations.",
-    image: "https://images.unsplash.com/photo-1577212017184-80cc0da11274?q=80&w=1740&auto=format&fit=crop"
+    image: "/samples/jersey/arpan front.jpeg"
   },
   {
     icon: <Image className="w-8 h-8" />,
-    title: "Thumbnails", // SPLIT 1
+    title: "Thumbnails",
     description: "High-CTR thumbnails for YouTube and Twitch that grab attention and drive clicks immediately.",
-    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1974&auto=format&fit=crop"
+    image: "/samples/thumbnails/thumbanil 1.jpg"
   },
   {
     icon: <Layout className="w-8 h-8" />,
-    title: "Posters", // SPLIT 2
+    title: "Posters",
     description: "Eye-catching promotional posters and event graphics that tell a story at a single glance.",
-    image: "https://images.unsplash.com/photo-1558485203-b5413009da02?q=80&w=1974&auto=format&fit=crop"
+    image: "/samples/poster/Poster (6).jpg"
   },
   {
     icon: <PenTool className="w-8 h-8" />,
     title: "Logo Design",
     description: "Memorable and unique logos that define your brand identity and stand out from the competition.",
-    image: "https://images.unsplash.com/photo-1629336128038-038c232328ba?q=80&w=1932&auto=format&fit=crop"
+    image: "/samples/logo/si esports (4) (1).jpg"
   },
 ];
 
