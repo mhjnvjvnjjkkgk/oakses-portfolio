@@ -81,13 +81,13 @@ const Work: React.FC = () => {
     mouseY.set(clientY - top);
   }
 
+  const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
+
   return (
     <section
       className="py-20 md:py-32 px-4 md:px-20 bg-transparent relative z-20 min-h-screen flex flex-col"
       onMouseMove={handleMouseMove}
     >
-      <ParallaxBackground />
-
       <ParallaxBackground />
 
       {/* Background Noise & Blob - GLOW REMOVED */}
@@ -142,7 +142,7 @@ const Work: React.FC = () => {
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block relative overflow-hidden rounded-2xl hover:scale-[1.02] transition-transform duration-300"
+                    className="block relative overflow-hidden rounded-2xl hover:scale-[1.02] transition-transform duration-300 cursor-pointer"
                   >
                     <img
                       src={project.image}
@@ -157,20 +157,25 @@ const Work: React.FC = () => {
                     </div>
                   </a>
                 ) : (
-                  // Non-clickable item
-                  <div className="relative w-full mb-2 md:mb-4">
-                    <TiltCard className="w-full rounded-xl overflow-hidden cursor-pointer bg-neutral-900 border border-transparent hover:border-white/20 group">
+                  // Clickable item for Lightbox
+                  <motion.div
+                    layoutId={`card-${project.id}`}
+                    onClick={() => setSelectedProject(project)}
+                    className="relative w-full mb-2 md:mb-4 cursor-zoom-in"
+                  >
+                    <TiltCard className="w-full rounded-xl overflow-hidden bg-neutral-900 border border-transparent hover:border-white/20 group">
                       <img
                         src={project.image}
                         alt={project.title}
                         className="w-full h-auto object-cover transition-all duration-700 ease-out group-hover:[transform:scale(1.1)_rotateX(7deg)] grayscale-[30%] group-hover:grayscale-0"
                       />
+                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
                     </TiltCard>
-                  </div>
+                  </motion.div>
                 )}
 
                 {/* Text Below Card */}
-                <div className="text-center">
+                <div className="text-center mt-2">
                   <span className="text-green-400 text-[10px] md:text-xs font-mono uppercase tracking-widest mb-1 block">{project.category}</span>
                   <h4 className="text-sm md:text-xl font-bold text-white flex justify-center leading-tight">
                     {project.title}
@@ -181,8 +186,52 @@ const Work: React.FC = () => {
           </AnimatePresence>
         </div>
       </div>
+
+      {/* Lightbox Modal */}
+      <AnimatePresence>
+        {selectedProject && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setSelectedProject(null)}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-xl p-4 md:p-8"
+          >
+            {/* Close Button */}
+            <button
+              onClick={() => setSelectedProject(null)}
+              className="absolute top-6 right-6 text-white/50 hover:text-white transition-colors z-[101] p-2"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+
+            <motion.div
+              layoutId={`card-${selectedProject.id}`}
+              onClick={(e) => e.stopPropagation()}
+              className="relative max-w-5xl w-full max-h-[90vh] flex flex-col items-center justify-center"
+            >
+              <img
+                src={selectedProject.image}
+                alt={selectedProject.title}
+                className="w-full h-auto max-h-[85vh] object-contain rounded-lg shadow-2xl"
+              />
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+                className="mt-4 text-center"
+              >
+                <h3 className="text-2xl font-bold text-white mb-1">{selectedProject.title}</h3>
+                <p className="text-green-400 font-mono text-sm uppercase tracking-widest">{selectedProject.category}</p>
+              </motion.div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
-
 export default Work;
