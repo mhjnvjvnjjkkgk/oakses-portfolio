@@ -100,7 +100,7 @@ const Contact: React.FC = () => {
             <h4 className="text-white font-bold mb-4 uppercase tracking-widest text-sm">Socials</h4>
             <div className="flex gap-6">
               <motion.a
-                href="https://wa.me/918017561073?text=Hi%2C%20I%20would%20like%20to%20connect%20with%20you"
+                href="https://wa.me/918017561073?text=Hey%20i%20just%20checked%20your%20portfolio%20and%20i%20would%20love%20to%20work%20with%20you%3A%0AMy%20name%20is%20%3A%20(insert%20name)%0AWhat%20i%20want%20to%20create%20%3A%20(insert%20your%20creative)%0AMy%20budget%20is%20%3A%20(Insert%20your%20budget)"
                 target="_blank"
                 rel="noopener noreferrer"
                 initial={{ opacity: 0, y: 10 }}

@@ -20,7 +20,7 @@ const services: ServiceItem[] = [
             "₹300 per logo",
             "2 free revisions included",
             "High quality renders",
-            "All source files provided"
+            "Source files may or may not be provided"
         ],
         previewImage: "/samples/logo/si esports (4) (1).jpg"
     },

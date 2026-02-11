@@ -11,7 +11,7 @@ const faqs = [
   },
   {
     question: "Do you provide source files?",
-    answer: "Yes! Source files are provided for all services except logo design. You'll receive all working files (PSD, AI, Figma, code, etc.) upon project completion."
+    answer: "Source files are provided for all services. For logo design, source files may or may not be provided depending on the project. You'll receive all working files (PSD, AI, Figma, code, etc.) upon project completion."
   },
   {
     question: "Do you offer post-launch support?",

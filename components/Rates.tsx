@@ -12,7 +12,7 @@ const rates = [
     price: "₹300",
     period: "per logo",
     description: "Professional logo design specially made for your niche.",
-    features: ["2 Free Revisions", "High Quality Render", "Source Files", "Fast Delivery"],
+    features: ["2 Free Revisions", "High Quality Render", "Source Files May/May Not Be Included", "Fast Delivery"],
     color: "#4ade80",
     previewImage: "/samples/logo/images (1).png"
   },
