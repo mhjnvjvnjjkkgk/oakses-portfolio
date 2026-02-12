@@ -7,11 +7,11 @@ import { InteractiveHeading } from './ui/InteractiveHeading';
 const faqs = [
   {
     question: "What is your typical turnaround time?",
-    answer: "Logo Design: 2 days | Thumbnail Design: 2 days | Poster Design: 2 days | Branding Kit: 1 week | Website Development: 2 weeks. Rush delivery available upon request for an additional fee."
+    answer: "Logo Design: 2 days | Thumbnail Design: 2 days | Poster Design: 2 days | Branding Kit: 1 week | Website Development: 2 weeks | AI Video Generation: 2-5 days. Rush delivery available upon request for an additional fee."
   },
   {
     question: "Do you provide source files?",
-    answer: "Source files are provided for all services. For logo design, source files may or may not be provided depending on the project. You'll receive all working files (PSD, AI, Figma, code, etc.) upon project completion."
+    answer: "For website creation, full source code is always provided. For all other services (logo design, thumbnails, posters, jerseys, branding, AI videos), source files may or may not be provided depending on the project. You'll receive all final deliverables in high quality upon project completion."
   },
   {
     question: "Do you offer post-launch support?",

@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import { Palette, Monitor, Shirt, Image, PenTool, Layout, ArrowUpRight } from 'lucide-react';
+import { Palette, Monitor, Shirt, Image, PenTool, Layout, ArrowUpRight, Video } from 'lucide-react';
 import { InteractiveHeading } from './ui/InteractiveHeading';
 
 const services = [
@@ -39,6 +39,12 @@ const services = [
     title: "Logo Design",
     description: "Memorable and unique logos that define your brand identity and stand out from the competition.",
     image: "/samples/logo/si esports (4) (1).jpg"
+  },
+  {
+    icon: <Video className="w-8 h-8" />,
+    title: "AI Video Generation",
+    description: "Cinematic AI-generated videos using Kling 2.6, Veo 3.1 & Sora for product demos, promos, and social content.",
+    image: "/samples/gallery/goku series.png"
   },
 ];
 

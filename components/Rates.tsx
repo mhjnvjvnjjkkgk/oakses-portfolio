@@ -30,7 +30,7 @@ const rates = [
     price: "₹500 - ₹650",
     period: "per design",
     description: "Custom jersey designs made ready for printing.",
-    features: ["Print-Ready Files", "Multiple Name Variations", "Printing Available (₹400)", "Shipping Available (₹60)"],
+    features: ["Print-Ready Files", "Multiple Name Variations", "Source Files May/May Not Be Included", "Shipping Available (₹60)"],
     color: "#2dd4bf",
     previewImage: "/samples/jersey/arpan front.jpeg"
   },
@@ -39,7 +39,7 @@ const rates = [
     price: "₹200",
     period: "per thumbnail",
     description: "High-CTR thumbnails that look great for your specific genre.",
-    features: ["Genre-Specific Style", "High Resolution", "Click-Optimized", "Quick Turnaround"],
+    features: ["Genre-Specific Style", "High Resolution", "Click-Optimized", "Source Files May/May Not Be Included"],
     color: "#a3e635",
     previewImage: "/samples/thumbnails/thumbanil 1.jpg"
   },
@@ -48,7 +48,7 @@ const rates = [
     price: "₹250",
     period: "per poster",
     description: "Creative posters for events, promotions, and announcements.",
-    features: ["Event-Focused", "Print & Digital Ready", "Eye-Catching Layouts", "Custom Graphics"],
+    features: ["Event-Focused", "Print & Digital Ready", "Eye-Catching Layouts", "Source Files May/May Not Be Included"],
     color: "#f472b6",
     previewImage: "/samples/poster/Poster (6).jpg"
   },
@@ -57,9 +57,18 @@ const rates = [
     price: "₹5,000",
     period: "full package",
     description: "Complete brand kit with colors, fonts, and logos.",
-    features: ["Full Brand Kit", "Color Palette & Fonts", "All Source Files", "Niche-Specific Design"],
+    features: ["Full Brand Kit", "Color Palette & Fonts", "Source Files May/May Not Be Included", "Niche-Specific Design"],
     color: "#818cf8",
-    previewImage: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=300&h=200&fit=crop"
+    previewImage: "/samples/logo/elevez main white logo (1).png"
+  },
+  {
+    title: "AI Video Generation",
+    price: "₹500 - ₹2,000",
+    period: "per video",
+    description: "Cinematic AI videos powered by Kling 2.6, Veo 3.1 & Sora.",
+    features: ["Kling 2.6 / Veo 3.1 / Sora", "Product Demos & Promos", "Price Based on Length", "Source Files May/May Not Be Included"],
+    color: "#f59e0b",
+    previewImage: "/samples/gallery/goku series.png"
   }
 ];
 

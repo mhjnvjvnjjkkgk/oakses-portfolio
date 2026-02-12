@@ -44,7 +44,7 @@ const services: ServiceItem[] = [
             "₹500-650 per design (4 jerseys with different names)",
             "Printing available: ₹400 per jersey",
             "Shipping available: ₹60 per 2 jerseys",
-            "Print-ready files delivered"
+            "Source files may or may not be provided"
         ],
         previewImage: "/samples/jersey/arpan front.jpeg" // Jersey design
     },
@@ -56,7 +56,7 @@ const services: ServiceItem[] = [
             "₹200 per thumbnail",
             "Genre-specific styling",
             "Click-optimized designs",
-            "Quick turnaround time"
+            "Source files may or may not be provided"
         ],
         previewImage: "/samples/thumbnails/thumbanil 1.jpg" // Better thumbnail example
     },
@@ -68,7 +68,7 @@ const services: ServiceItem[] = [
             "₹250 per poster",
             "Event-focused designs",
             "Print & digital ready",
-            "Custom graphics and layouts"
+            "Source files may or may not be provided"
         ],
         previewImage: "/samples/poster/Poster (6).jpg"
     },
@@ -80,9 +80,21 @@ const services: ServiceItem[] = [
             "₹5,000 full package",
             "Niche-specific design strategy",
             "Color palette and typography guidelines",
-            "All source files included"
+            "Source files may or may not be provided"
         ],
         previewImage: "/samples/logo/elevez main white logo (1).png"
+    },
+    {
+        id: "07",
+        title: "AI VIDEO GENERATION",
+        description: "Cinematic AI-generated videos powered by cutting-edge models",
+        details: [
+            "₹500–₹2,000 depending on video length",
+            "Powered by Kling 2.6, Veo 3.1 & Sora",
+            "Product demos, promos & social content",
+            "Source files may or may not be provided"
+        ],
+        previewImage: "/samples/gallery/goku series.png"
     }
 ];
 
