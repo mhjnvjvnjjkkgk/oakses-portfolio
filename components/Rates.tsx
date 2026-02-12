@@ -68,7 +68,7 @@ const rates = [
     description: "Cinematic AI videos powered by Kling 2.6, Veo 3.1 & Sora.",
     features: ["Kling 2.6 / Veo 3.1 / Sora", "Product Demos & Promos", "Price Based on Length", "Source Files May/May Not Be Included"],
     color: "#f59e0b",
-    previewImage: "/samples/gallery/goku series.png"
+    previewImage: "/videos/dance 5.mp4"
   }
 ];
 
@@ -190,16 +190,32 @@ const Rates: React.FC = () => {
       >
         <AnimatePresence mode="popLayout">
           {hoveredCard !== null && (
-            <motion.img
-              key={hoveredCard}
-              src={rates[hoveredCard].previewImage}
-              alt="Service Preview"
-              className="absolute inset-0 w-full h-full object-cover"
-              initial={{ y: "100%", opacity: 0 }}
-              animate={{ y: "0%", opacity: 1 }}
-              exit={{ y: "-100%", opacity: 0 }}
-              transition={{ duration: 0.3, ease: "easeInOut" }}
-            />
+            /\.(mp4|webm|mov)$/i.test(rates[hoveredCard].previewImage) ? (
+              <motion.video
+                key={hoveredCard}
+                src={rates[hoveredCard].previewImage}
+                className="absolute inset-0 w-full h-full object-cover"
+                initial={{ y: "100%", opacity: 0 }}
+                animate={{ y: "0%", opacity: 1 }}
+                exit={{ y: "-100%", opacity: 0 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                autoPlay
+                loop
+                muted
+                playsInline
+              />
+            ) : (
+              <motion.img
+                key={hoveredCard}
+                src={rates[hoveredCard].previewImage}
+                alt="Service Preview"
+                className="absolute inset-0 w-full h-full object-cover"
+                initial={{ y: "100%", opacity: 0 }}
+                animate={{ y: "0%", opacity: 1 }}
+                exit={{ y: "-100%", opacity: 0 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+              />
+            )
           )}
         </AnimatePresence>
       </motion.div>

@@ -44,7 +44,7 @@ const services = [
     icon: <Video className="w-8 h-8" />,
     title: "AI Video Generation",
     description: "Cinematic AI-generated videos using Kling 2.6, Veo 3.1 & Sora for product demos, promos, and social content.",
-    image: "/samples/gallery/goku series.png"
+    image: "/videos/dance 5.mp4"
   },
 ];
 
@@ -94,11 +94,22 @@ const Services: React.FC = () => {
         }}
       >
         {hoveredService !== null && (
-          <img
-            src={services[hoveredService].image}
-            alt="Service Preview"
-            className="w-full h-full object-cover"
-          />
+          /\.(mp4|webm|mov)$/i.test(services[hoveredService].image) ? (
+            <video
+              src={services[hoveredService].image}
+              className="w-full h-full object-cover"
+              autoPlay
+              loop
+              muted
+              playsInline
+            />
+          ) : (
+            <img
+              src={services[hoveredService].image}
+              alt="Service Preview"
+              className="w-full h-full object-cover"
+            />
+          )
         )}
       </motion.div>
 

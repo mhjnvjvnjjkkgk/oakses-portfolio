@@ -94,7 +94,7 @@ const services: ServiceItem[] = [
             "Product demos, promos & social content",
             "Source files may or may not be provided"
         ],
-        previewImage: "/samples/gallery/goku series.png"
+        previewImage: "/videos/dance 5.mp4"
     }
 ];
 
@@ -139,16 +139,32 @@ const WhatICanDo: React.FC = () => {
             >
                 <AnimatePresence mode="popLayout">
                     {hoveredItem !== null && (
-                        <motion.img
-                            key={hoveredItem}
-                            src={services[hoveredItem].previewImage}
-                            alt="Service Preview"
-                            className="absolute inset-0 w-full h-full object-cover"
-                            initial={{ y: "100%", opacity: 0 }}
-                            animate={{ y: "0%", opacity: 1 }}
-                            exit={{ y: "-100%", opacity: 0 }}
-                            transition={{ duration: 0.3, ease: "easeInOut" }}
-                        />
+                        /\.(mp4|webm|mov)$/i.test(services[hoveredItem].previewImage) ? (
+                            <motion.video
+                                key={hoveredItem}
+                                src={services[hoveredItem].previewImage}
+                                className="absolute inset-0 w-full h-full object-cover"
+                                initial={{ y: "100%", opacity: 0 }}
+                                animate={{ y: "0%", opacity: 1 }}
+                                exit={{ y: "-100%", opacity: 0 }}
+                                transition={{ duration: 0.3, ease: "easeInOut" }}
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                            />
+                        ) : (
+                            <motion.img
+                                key={hoveredItem}
+                                src={services[hoveredItem].previewImage}
+                                alt="Service Preview"
+                                className="absolute inset-0 w-full h-full object-cover"
+                                initial={{ y: "100%", opacity: 0 }}
+                                animate={{ y: "0%", opacity: 1 }}
+                                exit={{ y: "-100%", opacity: 0 }}
+                                transition={{ duration: 0.3, ease: "easeInOut" }}
+                            />
+                        )
                     )}
                 </AnimatePresence>
             </motion.div>

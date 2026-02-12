@@ -5,7 +5,7 @@ import { ZoomSection } from './ui/ZoomSection';
 import { ParallaxBackground } from './ui/ParallaxBackground';
 import { InteractiveHeading } from './ui/InteractiveHeading';
 
-type Category = "Logo Design" | "Website Creation" | "Thumbnail Design" | "Jersey Design" | "Poster Design";
+type Category = "Logo Design" | "Website Creation" | "Thumbnail Design" | "Jersey Design" | "Poster Design" | "AI Video Generation";
 
 interface ProjectItem {
   id: number;
@@ -15,7 +15,9 @@ interface ProjectItem {
   link?: string; // Optional link for clickable projects
 }
 
-const categories: Category[] = ["Logo Design", "Website Creation", "Thumbnail Design", "Jersey Design", "Poster Design"];
+const categories: Category[] = ["Logo Design", "Website Creation", "Thumbnail Design", "Jersey Design", "Poster Design", "AI Video Generation"];
+
+const isVideo = (path: string) => /\.(mp4|webm|mov)$/i.test(path);
 
 const projects: ProjectItem[] = [
   // Logo Design
@@ -66,6 +68,12 @@ const projects: ProjectItem[] = [
   { id: 41, category: "Poster Design", title: "Ravenclaw House", image: "/samples/others/ravenclaw (18).jpg" },
   { id: 42, category: "Poster Design", title: "Slot List", image: "/samples/others/slot list 2 (2).jpg" },
   { id: 43, category: "Poster Design", title: "Submission Form", image: "/samples/others/submission (1).jpg" },
+
+  // AI Video Generation
+  { id: 44, category: "AI Video Generation", title: "AI Dance Video", image: "/videos/dance 5.mp4" },
+  { id: 45, category: "AI Video Generation", title: "AI Dance Video 2", image: "/videos/dance 6.mp4" },
+  { id: 46, category: "AI Video Generation", title: "AI Dance Video 3", image: "/videos/dance 7(notposted.mp4" },
+  { id: 47, category: "AI Video Generation", title: "AI Generated Video", image: "/videos/VN20260209_184031.mp4" },
 ];
 
 const Work: React.FC = () => {
@@ -144,11 +152,22 @@ const Work: React.FC = () => {
                     rel="noopener noreferrer"
                     className="block relative overflow-hidden rounded-2xl hover:scale-[1.02] transition-transform duration-300 cursor-pointer"
                   >
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full object-cover"
-                    />
+                    {isVideo(project.image) ? (
+                      <video
+                        src={project.image}
+                        className="w-full object-cover"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                      />
+                    ) : (
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full object-cover"
+                      />
+                    )}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       <div className="absolute bottom-0 left-0 right-0 p-4">
                         <h3 className="text-white text-lg font-bold mb-1">{project.title}</h3>
@@ -164,11 +183,22 @@ const Work: React.FC = () => {
                     className="relative w-full mb-2 md:mb-4 cursor-zoom-in"
                   >
                     <TiltCard className="w-full rounded-xl overflow-hidden bg-neutral-900 border border-transparent hover:border-white/20 group">
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        className="w-full h-auto object-cover transition-all duration-700 ease-out group-hover:[transform:scale(1.1)_rotateX(7deg)] grayscale-[30%] group-hover:grayscale-0"
-                      />
+                      {isVideo(project.image) ? (
+                        <video
+                          src={project.image}
+                          className="w-full h-auto object-cover transition-all duration-700 ease-out group-hover:[transform:scale(1.1)_rotateX(7deg)] grayscale-[30%] group-hover:grayscale-0"
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
+                        />
+                      ) : (
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          className="w-full h-auto object-cover transition-all duration-700 ease-out group-hover:[transform:scale(1.1)_rotateX(7deg)] grayscale-[30%] group-hover:grayscale-0"
+                        />
+                      )}
                       <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
                     </TiltCard>
                   </motion.div>
@@ -213,11 +243,23 @@ const Work: React.FC = () => {
               onClick={(e) => e.stopPropagation()}
               className="relative max-w-5xl w-full max-h-[90vh] flex flex-col items-center justify-center"
             >
-              <img
-                src={selectedProject.image}
-                alt={selectedProject.title}
-                className="w-full h-auto max-h-[85vh] object-contain rounded-lg shadow-2xl"
-              />
+              {isVideo(selectedProject.image) ? (
+                <video
+                  src={selectedProject.image}
+                  className="w-full h-auto max-h-[85vh] object-contain rounded-lg shadow-2xl"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  controls
+                />
+              ) : (
+                <img
+                  src={selectedProject.image}
+                  alt={selectedProject.title}
+                  className="w-full h-auto max-h-[85vh] object-contain rounded-lg shadow-2xl"
+                />
+              )}
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
