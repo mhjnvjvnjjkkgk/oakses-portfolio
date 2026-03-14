@@ -2,6 +2,13 @@ import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, useSpring, MotionValue } from 'framer-motion';
 
 const images = [
+  "/samples/main posters/New Project (2) (1).jpg",
+  "/samples/main posters/Untitled Project - 99% discount (1).png",
+  "/samples/main posters/Untitled Project - Artboard 2.png",
+  "/samples/main posters/Untitled Project - Elevez 2.png",
+  "/samples/main posters/Untitled Project - Elevez 4.png",
+  "/samples/main posters/Untitled Project - Elevez 8.png",
+  "/samples/main posters/xmas carausal.jpg",
   "/samples/gallery/FOR YO DADDY.png",
   "/samples/gallery/poster.jpg",
   "/samples/gallery/battle of underdogs thumbnail.png",

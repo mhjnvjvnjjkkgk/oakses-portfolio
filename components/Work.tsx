@@ -53,6 +53,13 @@ const projects: ProjectItem[] = [
   { id: 28, category: "Jersey Design", title: "Tubu Back", image: "/samples/jersey/tubu back.jpeg" },
 
   // Poster Design
+  { id: 48, category: "Poster Design", title: "Main Poster 1", image: "/samples/main posters/New Project (2) (1).jpg" },
+  { id: 49, category: "Poster Design", title: "Main Poster 2", image: "/samples/main posters/Untitled Project - 99% discount (1).png" },
+  { id: 50, category: "Poster Design", title: "Main Poster 3", image: "/samples/main posters/Untitled Project - Artboard 2.png" },
+  { id: 51, category: "Poster Design", title: "Main Poster 4", image: "/samples/main posters/Untitled Project - Elevez 2.png" },
+  { id: 52, category: "Poster Design", title: "Main Poster 5", image: "/samples/main posters/Untitled Project - Elevez 4.png" },
+  { id: 53, category: "Poster Design", title: "Main Poster 6", image: "/samples/main posters/Untitled Project - Elevez 8.png" },
+  { id: 54, category: "Poster Design", title: "Main Poster 7", image: "/samples/main posters/xmas carausal.jpg" },
   { id: 29, category: "Poster Design", title: "Ravenclaw Poster", image: "/samples/poster/FOR RAVENCLAW (1).jpg" },
   { id: 30, category: "Poster Design", title: "Event Poster", image: "/samples/poster/Poster (6).jpg" },
   { id: 31, category: "Poster Design", title: "Vote Poster", image: "/samples/poster/VOTE for roniit poddar (8).jpg" },

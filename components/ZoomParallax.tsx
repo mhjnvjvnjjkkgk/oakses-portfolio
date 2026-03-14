@@ -33,45 +33,45 @@ export default function ZoomParallax() {
     const pictures = [
         // Layer 1 - Deep Background (slowest)
         {
-            src: "/samples/jersey/arpan front.jpeg",
+            src: "/samples/main posters/New Project (2) (1).jpg",
             scale: scales[0],
             rotation: -5,
             className: "w-[22vw] h-[20vh] -top-[30vh] -left-[26vw]"
         },
         {
-            src: "/samples/thumbnails/17 - dec 2020.jpg",
+            src: "/samples/main posters/Untitled Project - 99% discount (1).png",
             scale: scales[0],
             rotation: 4,
             className: "w-[24vw] h-[18vh] -top-[26vh] left-[20vw]"
         },
         {
-            src: "/samples/logo/si esports (4) (1).jpg",
+            src: "/samples/main posters/Untitled Project - Artboard 2.png",
             scale: scales[0],
             rotation: -2,
             className: "w-[20vw] h-[18vh] top-[28vh] left-[38vw]"
         },
         // Layer 2
         {
-            src: "/samples/poster/FOR RAVENCLAW (1).jpg",
+            src: "/samples/main posters/Untitled Project - Elevez 2.png",
             scale: scales[1],
             rotation: -3,
             className: "w-[16vw] h-[24vh] top-[20vh] -left-[26vw]"
         },
         {
-            src: "/samples/thumbnails/Thumbnail - 2.jpg",
+            src: "/samples/main posters/Untitled Project - Elevez 4.png",
             scale: scales[1],
             rotation: 5,
             className: "w-[18vw] h-[16vh] top-[24vh] left-[24vw]"
         },
         {
-            src: "/samples/jersey/bleeder front.jpeg",
+            src: "/samples/main posters/Untitled Project - Elevez 8.png",
             scale: scales[1],
             rotation: -4,
             className: "w-[16vw] h-[14vh] -top-[34vh] left-[5vw]"
         },
         // Layer 3
         {
-            src: "/samples/poster/gandhi jayanti simple by shayak.jpg",
+            src: "/samples/main posters/xmas carausal.jpg",
             scale: scales[2],
             rotation: 2,
             className: "w-[14vw] h-[14vh] -top-[10vh] -left-[36vw]"

@@ -50,7 +50,7 @@ const rates = [
     description: "Creative posters for events, promotions, and announcements.",
     features: ["Event-Focused", "Print & Digital Ready", "Eye-Catching Layouts", "Source Files May/May Not Be Included"],
     color: "#f472b6",
-    previewImage: "/samples/poster/Poster (6).jpg"
+    previewImage: "/samples/main posters/Untitled Project - Artboard 2.png"
   },
   {
     title: "Brand Identity",
